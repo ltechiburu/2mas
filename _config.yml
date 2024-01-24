@@ -28,7 +28,7 @@ color:
   primary: fff5e1 # Maroon
   primary-rgb: "255,245,225" # "24,288,156"
   secondary: 4d1c31 # 4d1c31
-  secondary-dark: 233140 # Keep the existing secondary-dark color
+  secondary-dark: 000000 # Keep the existing secondary-dark color
 
 
 # Footer settings
