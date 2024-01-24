@@ -7,5 +7,5 @@ alt: image-alt
 project-date: April 2022
 client: Personal Project
 category: Data Analysis
-description: "<a href=\"https://meettomas.blogspot.com/p/npb-to-mlb-seiya-suzuki.html" target=\"_blank\"><b><i>A case study on the transition from the Japanese baseball league to the Majors, and what we can expect from Seiya Suzuki.</i></b></a>"
+description: "<a href=\"https://meettomas.blogspot.com/p/npb-to-mlb-seiya-suzuki.html\" target=\"_blank\"><b><i>A case study on the transition from the Japanese baseball league to the Majors, and what we can expect from Seiya Suzuki.</i></b></a>"
 ---
