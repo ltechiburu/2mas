@@ -7,22 +7,7 @@ alt: image-alt
 project-date: April 2022
 client: Personal Project
 category: Data Analysis
-description: >
-  Japanese baseball star Seiya Suzuki has announced that after 9 seasons in the NPB, the top flight of baseball in Japan, he will be taking his talents overseas to the Major Leagues. Given his high production levels in Japan, he has garnered the attention of many MLB teams.
-
-  While Suzuki may bring an impressive resume to the United States, MLB is considered the highest level of baseball for a reason. So, what can we really expect out of him in 2022?
-
-  With this analysis, I will present projections for Suzuki's 2022 MLB season to try to add some context to his value. I created models by analyzing previous Japanese players that made the switch to the MLB, and finding how their stats were affected as they got acclimated to the American game.
-
-  I then found a couple players that had similar numbers in 2021 to Suzuki's projections to give a ballpark (no pun intended) estimate for the annual value of his potential contract.
-
-  Since the implementation of the posting system allowing NPB players to go to the Major Leagues in 1999, there have only been a handful of Japanese players to make the switch. Out of this handful, only 6 players reached at least 300 At-Bats in the MLB. This is a deep dive into how these players fared in their transition.
-
-  I chose to analyze the 4 most common statistical averages used when evaluating a player's offensive ability: Batting Average (BA), On Base Percentage (OBP), Slugging Average (SLG), On Base Plus Slugging (OPS). For reference, in the 2021 MLB season, the league averages for these statistics were:
-
-  .244/.317/.411/.728
----
-<div style="text-align: center;"><b><i>A case study on the transition from the Japanese baseball league to the Majors, and what we can expect from Seiya Suzuki.&nbsp;</i></b></div>
+description: <div style="text-align: center;"><b><i>A case study on the transition from the Japanese baseball league to the Majors, and what we can expect from Seiya Suzuki.&nbsp;</i></b></div>
 <div style="text-align: center;"><b><i><br /></i></b></div>
 <div class="separator" style="clear: both; text-align: center;">
   <table align="center" cellpadding="0" cellspacing="0" class="tr-caption-container" style="margin-left: auto; margin-right: auto;">
@@ -45,3 +30,4 @@ description: >
 <p>Japanese baseball star Seiya Suzuki has announced that after 9 seasons in the NPB, the top flight of baseball in Japan, he will be taking his talents overseas to the Major Leagues. Given his high production levels in Japan, he has garnered the attention of many MLB teams.&nbsp;</p>
 <!-- (Continue with the rest of your content) -->
 
+---
