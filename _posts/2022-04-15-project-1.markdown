@@ -7,27 +7,71 @@ alt: image-alt
 project-date: April 2022
 client: Personal Project
 category: Data Analysis
-description: "<div style=\"text-align: center;\"><b><i>A case study on the transition from the Japanese baseball league to the Majors, and what we can expect from Seiya Suzuki.&nbsp;</i></b></div>
-<div style=\"text-align: center;\"><b><i><br /></i></b></div>
-<div class=\"separator\" style=\"clear: both; text-align: center;\">
-  <table align=\"center\" cellpadding=\"0\" cellspacing=\"0\" class=\"tr-caption-container\" style=\"margin-left: auto; margin-right: auto;\">
+description: "<div style="text-align: center;"><b><i>A case study on the transition from the Japanese baseball league to the Majors, and what we can expect from Seiya Suzuki.&nbsp;</i></b></div>
+<div style="text-align: center;"><b><i><br /></i></b></div>
+<div class="separator" style="clear: both; text-align: center;">
+  <table align="center" cellpadding="0" cellspacing="0" class="tr-caption-container" style="margin-left: auto; margin-right: auto;">
     <tbody>
       <tr>
-        <td style=\"text-align: center;\">
-          <a href=\"https://blogger.googleusercontent.com/img/a/AVvXsEh5vc6hjAShdvaEyliknviOvFQ3EDNOfdQTP5I-L20ISC05FspAc9iT3nEVr7FU9UBjyEG43zIFEjv6p-d8OxDtpRD48fh8hfLSUpupH27oZybO0LQB7yf-XY22nBm7DTbLaHtHJfTGBdP68OmsdRXJI71px5anmv1QkPJmnJuxc6C63SF1hiYFLSnr=s1400\" style=\"margin-left: auto; margin-right: auto;\">
-            <img border=\"0\" data-original-height=\"1400\" data-original-width=\"1400\" height=\"640\" src=\"https://blogger.googleusercontent.com/img/a/AVvXsEh5vc6hjAShdvaEyliknviOvFQ3EDNOfdQTP5I-L20ISC05FspAc9iT3nEVr7FU9UBjyEG43zIFEjv6p-d8OxDtpRD48fh8hfLSUpupH27oZybO0LQB7yf-XY22nBm7DTbLaHtHJfTGBdP68OmsdRXJI71px5anmv1QkPJmnJuxc6C63SF1hiYFLSnr=w640-h640\" width=\"640\" />
+        <td style="text-align: center;">
+          <a href="https://blogger.googleusercontent.com/img/a/AVvXsEh5vc6hjAShdvaEyliknviOvFQ3EDNOfdQTP5I-L20ISC05FspAc9iT3nEVr7FU9UBjyEG43zIFEjv6p-d8OxDtpRD48fh8hfLSUpupH27oZybO0LQB7yf-XY22nBm7DTbLaHtHJfTGBdP68OmsdRXJI71px5anmv1QkPJmnJuxc6C63SF1hiYFLSnr=s1400" style="margin-left: auto; margin-right: auto;">
+            <img border="0" data-original-height="1400" data-original-width="1400" height="640" src="https://blogger.googleusercontent.com/img/a/AVvXsEh5vc6hjAShdvaEyliknviOvFQ3EDNOfdQTP5I-L20ISC05FspAc9iT3nEVr7FU9UBjyEG43zIFEjv6p-d8OxDtpRD48fh8hfLSUpupH27oZybO0LQB7yf-XY22nBm7DTbLaHtHJfTGBdP68OmsdRXJI71px5anmv1QkPJmnJuxc6C63SF1hiYFLSnr=w640-h640" width="640" />
           </a>
         </td>
       </tr>
       <tr>
-        <td class=\"tr-caption\" style=\"text-align: center;\"></td>
+        <td class="tr-caption" style="text-align: center;"></td>
       </tr>
     </tbody>
   </table>
   <br />
-  <div class=\"separator\" style=\"clear: both; text-align: center;\"><br /></div>
+  <div class="separator" style="clear: both; text-align: center;"><br /></div>
 </div>
-<p>Japanese baseball star Seiya Suzuki has announced that after 9 seasons in the NPB, the top flight of baseball in Japan, he will be taking his talents overseas to the Major Leagues. Given his high production levels in Japan, he has garnered the attention of many MLB teams.&nbsp;</p>"
+
+<p>Japanese baseball star Seiya Suzuki has announced that after 9 seasons in the NPB, the top flight of baseball in Japan, he will be taking his talents overseas to the Major Leagues. Given his high production levels in Japan, he has garnered the attention of many MLB teams.&nbsp;</p>
+
+<p>While Suzuki may bring an impressive resume to the United States, MLB is considered the highest level of baseball for a reason. So, what can we really expect out of him in 2022?&nbsp;</p>
+
+<p>With this analysis, I will present projections for Suzuki's 2022 MLB season to try to add some context to his value. I created models by analyzing previous Japanese players that made the switch to the MLB, and finding how their stats were affected as they got acclimated to the American game.&nbsp;</p>
+
+<p>I then found a couple players that had similar numbers in 2021 to Suzuki's projections to give a ballpark (no pun intended) estimate for the annual value of his potential contract.</p>
+
+<p><br /></p>
+
+<p>Since the implementation of the posting system allowing NPB players to go to the Major Leagues in 1999, there have only been a handful of Japanese players to make the switch. Out of this handful, only 6 players reached at least 300 At-Bats in the MLB. This is a deep dive into how these players fared in their transition.&nbsp;</p>
+
+<p>I chose to analyze the 4 most common statistical averages used when evaluating a players offensive ability: Batting Average (BA), On Base Percentage (OBP), Slugging Average (SLG), On Base Plus Slugging (OPS). For reference, in the 2021 MLB season, the league averages for these statistics were:&nbsp;</p>
+
+<p>.244/.317/.411/.728</p>
+
+<h2 style="text-align: left;">Statistical Difference from the NPB to MLB</h2>
+
+<div class="tableauPlaceholder" id="viz1647220261522" style="position: relative;"><object class="tableauViz" style="display: none;"><param name="host_url" value="https%3A%2F%2Fpublic.tableau.com%2F" /> <param name="embed_code_version" value="3" /> <param name="site_root" value="" /><param name="name" value="NPBtoMLBtransition/Sheet1" /><param name="tabs" value="no" /><param name="toolbar" value="yes" /><param name="animate_transition" value="yes" /><param name="display_static_image" value="yes" /><param name="display_spinner" value="yes" /><param name="display_overlay" value="yes" /><param name="display_count" value="yes" /><param name="language" value="en-US" /></object></div>                <script type="text/javascript">                    var divElement = document.getElementById('viz1647220261522');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+
+<p>The box and whisker plot above shows how players stats were affected during their transition to the MLB. By hovering over the plot, you can see how an individual stat was affected for each player. This gives us a framework for projecting Seiya Suzuki's numbers for the 2022 season.&nbsp;</p>
+
+<p><br /></p>
+
+<h2 style="text-align: left;">Projecting Seiya Suzuki's 2022 MLB Season</h2>
+
+<div><br /></div>
+
+<div class="separator" style="clear: both; text-align: center;"><a href="https://blogger.googleusercontent.com/img/a/AVvXsEhFUMr2TSncLxZdDbUsArB9rpnXkcYcLM_zpojhgGOUOa2uLRUYHwpPebeMmZLUHlBmm__jh0J2fGKT-OduQob4Ek8a4sL_1bcVIUax9vMVIAIuC92Je96qtyku4iuA2zcLTrJKM7fR_eI5TkqqXg05p6nXWgkBA42AKNt6LVBHC20NDT5FJjQFHe6R=s804" style="margin-left: 1em; margin-right: 1em;"><img border="0" data-original-height="528" data-original-width="804" height="421" src="https://blogger.googleusercontent.com/img/a/AVvXsEhFUMr2TSncLxZdDbUsArB9rpnXkcYcLM_zpojhgGOUOa2uLRUYHwpPebeMmZLUHlBmm__jh0J2fGKT-OduQob4Ek8a4sL_1bcVIUax9vMVIAIuC92Je96qtyku4iuA2zcLTrJKM7fR_eI5TkqqXg05p6nXWgkBA42AKNt6LVBHC20NDT5FJjQFHe6R=w640-h421" width="640" /></a></div>
+
+<br /><p><br /></p>
+
+<div class="separator" style="clear: both; text-align: left;">The table above shows Suzukis potential slash lines if he were to have a similar transition to each of the 6 Japanese players preceding him. The projections are made using Suzuki's stats from 2019 to 2021 in the NPB. At the bottom of the table, we see first and third quartile projections, as well as an aggregate average of the 6 player projections.&nbsp;</div>
+
+<div class="separator" style="clear: both; text-align: left;"><br /></div>
+
+<div class="separator" style="clear: both; text-align: left;"><br /></div>
+
+<div class="separator" style="clear: both; text-align: left;">Now that we have some concrete projections, we can look for 2021 MLB seasons that resemble these numbers. The following is a list of players whose slash lines fall between the boundaries set by our projections.&nbsp;</div>
+
+<div class="separator" style="clear: both; text-align: left;"><br /></div>
+
+<div class="separator" style="clear: both; text-align: left;"><google-sheets-html-origin><table border="1" cellpadding="0" cellspacing="0" dir="ltr" style="border-collapse: collapse; border: none; font-family: Arial; font-size: 10pt; table-layout: fixed; width: 0px;" xmlns="http://www.w3.org/1999/xhtml"><colgroup><col width="100"></col><col width="100"></col><col width="100"></col><col width="100"></col><col width="100"></col><col width"
+
 ---
 
 <!-- (Continue with the rest of your content) -->
