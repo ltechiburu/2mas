@@ -3,7 +3,7 @@ layout: default
 modal-id: 3
 date: 2019-05-03
 img: owl.png
-alt: image-alt
+alt: a UW themed owl logo
 project-date: May 2019
 client: UW Psi Upsilon
 category: Graphic Design, Adobe Illustrator
