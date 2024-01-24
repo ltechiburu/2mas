@@ -2,7 +2,7 @@
 layout: default
 modal-id: 1
 date: 2022-04-15
-img: cabin.png
+img: baseball.png
 alt: image-alt
 project-date: April 2022
 client: Personal Project
