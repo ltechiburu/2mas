@@ -1,11 +1,11 @@
 ---
 layout: default
-modal-id: 2
-date: 2014-07-17
-img: cake.png
+modal-id: 1
+date: 2022-04-15
+img: baseball.png
 alt: image-alt
-project-date: April 2014
-client: Start Bootstrap
-category: Web Development
-description: "<a href=\"https://meettomas.blogspot.com/p/npb-to-mlb-seiya-suzuki.html" target=\"_blank\"><b><i>A case study on the transition from the Japanese baseball league to the Majors, and what we can expect from Seiya Suzuki.</i></b></a>"
+project-date: April 2022
+client: Personal Project
+category: Data Analysis
+description: "<a href=\"your_url_here\" target=\"_blank\"><b><i>A case study on the transition from the Japanese baseball league to the Majors, and what we can expect from Seiya Suzuki.</i></b></a>"
 ---
