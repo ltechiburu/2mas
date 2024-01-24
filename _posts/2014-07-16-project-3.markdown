@@ -7,5 +7,5 @@ alt: a UW themed owl logo
 project-date: May 2019
 client: UW Psi Upsilon
 category: Graphic Design, Adobe Illustrator
-description: A logo I created when running a clubs social media account while studying at the University of Washington.
+description: A logo I created as the head of social media for a club at the University of Washington.
 ---
