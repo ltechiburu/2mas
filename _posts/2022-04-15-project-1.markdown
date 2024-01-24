@@ -7,7 +7,7 @@ alt: image-alt
 project-date: April 2022
 client: Personal Project
 category: Data Analysis
-description: # A Case Study on Seiya Suzuki's Transition to MLB
+description: A Case Study on Seiya Suzuki's Transition to MLB
 
 Japanese baseball star Seiya Suzuki has announced...
 
