@@ -7,20 +7,5 @@ alt: image-alt
 project-date: April 2022
 client: Personal Project
 category: Data Analysis
-description: # A Case Study on Seiya Suzuki's Transition to MLB
-
-Japanese baseball star Seiya Suzuki has announced...
-
-... (your entire content goes here)
-
-## Statistical Difference from the NPB to MLB
-
-The box and whisker plot above shows how players' stats were affected during their transition to the MLB...
-
-## Projecting Seiya Suzuki's 2022 MLB Season
-
-The table above shows Suzuki's potential slash lines if he were to have a similar transition to each of the 6 Japanese players preceding him...
-
-... (continue with the rest of your content)
-
+description: A case study on the transition from the Japanese baseball league to the Majors, and what we can expect from Seiya Suzuki. <br> https://meettomas.blogspot.com/p/npb-to-mlb-seiya-suzuki.html
 ---
