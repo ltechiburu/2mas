@@ -3,7 +3,7 @@ layout: default
 modal-id: 2
 date: 2024-01-21
 img: beer-w-background.png
-alt: image-alt
+alt: frothing beer graphic
 project-date: January 2024
 client: Friends
 category: Web Development, Google Maps API
