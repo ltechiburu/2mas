@@ -22,3 +22,26 @@ description: >
 
   .244/.317/.411/.728
 ---
+<div style="text-align: center;"><b><i>A case study on the transition from the Japanese baseball league to the Majors, and what we can expect from Seiya Suzuki.&nbsp;</i></b></div>
+<div style="text-align: center;"><b><i><br /></i></b></div>
+<div class="separator" style="clear: both; text-align: center;">
+  <table align="center" cellpadding="0" cellspacing="0" class="tr-caption-container" style="margin-left: auto; margin-right: auto;">
+    <tbody>
+      <tr>
+        <td style="text-align: center;">
+          <a href="https://blogger.googleusercontent.com/img/a/AVvXsEh5vc6hjAShdvaEyliknviOvFQ3EDNOfdQTP5I-L20ISC05FspAc9iT3nEVr7FU9UBjyEG43zIFEjv6p-d8OxDtpRD48fh8hfLSUpupH27oZybO0LQB7yf-XY22nBm7DTbLaHtHJfTGBdP68OmsdRXJI71px5anmv1QkPJmnJuxc6C63SF1hiYFLSnr=s1400" style="margin-left: auto; margin-right: auto;">
+            <img border="0" data-original-height="1400" data-original-width="1400" height="640" src="https://blogger.googleusercontent.com/img/a/AVvXsEh5vc6hjAShdvaEyliknviOvFQ3EDNOfdQTP5I-L20ISC05FspAc9iT3nEVr7FU9UBjyEG43zIFEjv6p-d8OxDtpRD48fh8hfLSUpupH27oZybO0LQB7yf-XY22nBm7DTbLaHtHJfTGBdP68OmsdRXJI71px5anmv1QkPJmnJuxc6C63SF1hiYFLSnr=w640-h640" width="640" />
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <td class="tr-caption" style="text-align: center;"></td>
+      </tr>
+    </tbody>
+  </table>
+  <br />
+  <div class="separator" style="clear: both; text-align: center;"><br /></div>
+</div>
+<p>Japanese baseball star Seiya Suzuki has announced that after 9 seasons in the NPB, the top flight of baseball in Japan, he will be taking his talents overseas to the Major Leagues. Given his high production levels in Japan, he has garnered the attention of many MLB teams.&nbsp;</p>
+<!-- (Continue with the rest of your content) -->
+
