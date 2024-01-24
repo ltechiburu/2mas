@@ -1,11 +1,13 @@
 ---
 layout: default
 modal-id: 2
-date: 2014-07-17
+date: 2024-01-21
 img: cake.png
 alt: image-alt
-project-date: April 2014
-client: Start Bootstrap
-category: Web Development
-description: Use this area of the page to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.
+project-date: January 2024
+client: Friends
+category: Web Development, Google Maps API
+description: "<a href=\"https://meettomas.blogspot.com/p/seattle-drinks.html\" target=\"_blank\" style=\"color: blue;\"><b><i>Ever wanted to see my reviews of Seattle Bars? Neither has anybody else! Look away</i></b></a>"
+---
+
 ---
