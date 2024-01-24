@@ -2,9 +2,9 @@
 title: Tomas Echiburu
 email: echiburu19@gmail.com
 url: https://github.com/ltechiburu/2mas
-description: Welcome to my site
+description: "Welcome to my site"
 keywords: "your keywords, separated by commas"
-skills: "Web Developer - Graphic Artist - User Experience Designer"
+skills: "Web Developer - Data Storyteller - Graphic Designer"
 meta_author: Echiburu Tomas
 
 # Google webmaster tools
@@ -32,7 +32,7 @@ color:
 
 # Footer settings
 footer:
-  copyright: Mr. Echiburu
+  copyright: Echiburu Corp.
   location: Location
   social: Around the Web
   credits: Credits
@@ -52,8 +52,8 @@ social:
 
 # Postal address (add as many lines as necessary)
 address:
-  - line: 3481 Melrose Place
-  - line: Beverly Hills, CA 90210
+  - line: New York, NY
+  - line: Seattle, WA
 
 # Credits content
 credits: 'Freelancer is a free to use, open source Bootstrap theme created by <a href="http://startbootstrap.com">Start Bootstrap</a>.'
