@@ -3,7 +3,7 @@ title: Tomas Echiburu
 email: echiburu19@gmail.com
 url: https://github.com/ltechiburu/2mas
 description: "Welcome to my site"
-keywords: "your keywords, separated by commas"
+keywords: "Tomas Echiburu, Tomas, Echiburu, Data Analyst, Data, Physcis, Consumer Research" #"your keywords, separated by commas"
 skills: "Data Storyteller - Graphic Designer- Problem Solver"
 meta_author: Echiburu Tomas
 
@@ -69,4 +69,4 @@ defaults:
       path: ""
       type: "posts"
     values:
-      permalink: ""
+      permalink: "https://meettomas.blogspot.com/p/seattle-drinks.html"
