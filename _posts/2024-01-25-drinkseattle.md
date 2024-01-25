@@ -9,6 +9,15 @@ client: Friends
 category: Web Development, Google Maps API
 description: "Attempting to Add a Seattle drinks"
 ---
+<!-- _includes/drinkseattle.html -->
+---
+layout: default
+---
+
+<div class="container">
+  <!-- Your page content goes here -->
+  {{ content }}
+</div>
 
 # Welcome to DrinkSeattle
 
