@@ -10,11 +10,6 @@ category: Web Development, Google Maps API
 description: "Attempting to Add a Seattle drinks"
 ---
 
----
-layout: default
-title: DrinkSeattle
----
-
 # Welcome to DrinkSeattle
 
 This is the DrinkSeattle page content. You can customize it with information about your favorite drinks, Seattle's beverage scene, or anything you'd like to share!
