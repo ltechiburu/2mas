@@ -1,5 +1,17 @@
 ---
 layout: default
+modal-id: 7
+date: 2024-01-25
+img: cabin.png
+alt: cabin graphic
+project-date: January 2024
+client: Friends
+category: Web Development, Google Maps API
+description: "Attempting to Add a Seattle drinks"
+---
+
+---
+layout: default
 title: DrinkSeattle
 ---
 
