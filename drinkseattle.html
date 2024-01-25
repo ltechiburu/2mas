@@ -26,7 +26,6 @@ After 7 years in Seattle, I have found myself enjoying happy hour beers, post-bi
   box-shadow: 0 0 40px rgba(0, 0, 0, 0.7); /* Adjusted box shadow on hover for added depth */
 }
 
-
   </style>
 
 </head>
@@ -103,7 +102,7 @@ After 7 years in Seattle, I have found myself enjoying happy hour beers, post-bi
     addMarker(map, 47.66733949063284, -122.31752593324471, "UDistrict", "Monkey Pub", "&#9733;&#9733;&#9733;&#189",   "Very fun trivia night with a great host. Great change of pace from the Ave bars");
     addMarker(map, 47.61387929324114, -122.34704004299293, "Belltown", "Screwdriver Bar", "&#9733;&#9733;&#9733;&#189",   "Rock 'n' Roll haven located in a dimly lit Belltown basement.");
     addMarker(map, 47.66191402421682, -122.37667788748455, "Ballard", "Pono Ranch", "&#9733;&#9733;&#9733;&#189",   "Top tier patio with live music.");
-    addMarker(map, 47.62358717185944, -122.3127881630273, "Capitol Hill", "Liberty", "&#9733;&#9733;&#9733;&#189",   "Neat cocktail bar with smooth jazz music ambiance.Suspiciously cheap sushi.");
+    addMarker(map, 47.62358717185944, -122.3127881630273, "Capitol Hill", "Liberty", "&#9733;&#9733;&#9733;&#189;",   "Neat cocktail bar with smooth jazz music ambiance.Suspiciously cheap sushi.");
 
     // Add more markers as needed
   }
@@ -130,22 +129,37 @@ function addMarker(map, latitude, longitude, neighborhood, barName, rating, desc
     infowindow.open(map, marker);
   });
 }   
-    
-// Function to get marker icon based on rating
-function getMarkerIcon(rating) {
-  // Extract numeric rating from the string, considering the unicode character for half-star
-  var starRating = parseFloat(rating.replace(/&#189;/, '.5').split(' ')[1]);
+  // Function to get marker icon based on rating
 
-  if (!isNaN(starRating)) {
-    if (starRating >= 4) {
+    function getMarkerIcon(rating) {
+  // Extract numeric rating from the string
+  var numericRating = extractNumericRating(rating);
+
+  if (!isNaN(numericRating)) {
+    if (numericRating >= 4) {
       return 'http://maps.google.com/mapfiles/ms/icons/green-dot.png'; // Green marker for >= 4 stars
-    } else if (starRating >= 3) {
+    } else if (numericRating >= 3) {
       return 'http://maps.google.com/mapfiles/ms/icons/yellow-dot.png'; // Yellow marker for >= 3 stars
     }
-  }
+  
 
   return 'http://maps.google.com/mapfiles/ms/icons/red-dot.png'; // Default red marker for lower ratings
 }
+
+  return 'http://maps.google.com/mapfiles/ms/icons/red-dot.png'; // Default red marker for lower ratings
+}
+// Helper function to extract numeric rating from the star string
+function extractNumericRating(starString) {
+  // Match numeric values and fractions
+  var matches = starString.match(/&#9733;/g);
+
+  if (matches && matches.length > 0) {
+    return matches.length + 0.5; // Each "&#9733;" represents a full star, and "&#189" represents half a star
+  }
+
+  return NaN;
+}
+
 
 </script>
 
@@ -213,8 +227,9 @@ function getMarkerIcon(rating) {
       <option value="rating">Rating</option>
       <option value="neighborhood">Neighborhood</option>
     </select>
-    <!-- Checkbox for Show all reviews -->
-   
+
+
+
     <!-- Add space for future filtering options here -->
   </div>
 
@@ -232,7 +247,7 @@ function getMarkerIcon(rating) {
       <script>
     // Bar data
     const bars = [
-      { name: "Lockspot Cafe", neighborhood: "Ballard", rating: 3, description: "Conveniently located right off the Burke Gilman, by the entrance to the Ballard Locks. Nice place for a pick-me-up when on a bike loop. Solid Salmon & Clam Chowder" },
+      { name: "Lockspot Cafe", neighborhood: "Ballard", rating: 3, description: "Conveniently located right oUSff the Burke Gilman, by the entrance to the Ballard Locks. Nice place for a pick-me-up when on a bike loop. Solid Salmon & Clam Chowder" },
       { name: "Buckley's in Belltown", neighborhood: "Belltown", rating: 2, description: "Average sports bar. Meh" },
       { name: "Cyclops", neighborhood: "Belltown", rating: 3.5, description: "Located across the street from the Crocodile, a great place to grab a bite and a drink before a concert." },
       { name: "Jupiter Bar", neighborhood: "Belltown", rating: 4, description: "Fun, dark bar with themed cocktails. Wander into the back and find a huge arcade room with any game you can imagine. Hope you aren’t a germaphobe." },
@@ -332,6 +347,8 @@ function getMarkerIcon(rating) {
       const halfStar = (rating % 1 !== 0) ? "½" : "";
       return `${fullStars}${halfStar}`;
     }
-</script>
+ 
 
+
+</script>
     
