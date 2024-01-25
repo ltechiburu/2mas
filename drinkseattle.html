@@ -132,7 +132,6 @@ function addMarker(map, latitude, longitude, neighborhood, barName, rating, desc
 }   
     
 // Function to get marker icon based on rating
-// Modify the getMarkerIcon function
 function getMarkerIcon(rating) {
   // Extract numeric rating from the string, considering the unicode character for half-star
   var starRating = parseFloat(rating.replace(/&#189;/, '.5').split(' ')[1]);
@@ -146,8 +145,8 @@ function getMarkerIcon(rating) {
   }
 
   return 'http://maps.google.com/mapfiles/ms/icons/red-dot.png'; // Default red marker for lower ratings
-
 }
+
 </script>
 
 <head>
