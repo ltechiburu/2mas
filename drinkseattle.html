@@ -204,7 +204,13 @@ margin: auto;
   function initMap() {
     var map = new google.maps.Map(document.getElementById('map'), {
       center: {lat: 47.6062, lng: -122.3321}, // Seattle coordinates
-      zoom: 12
+      zoom: 12,
+	styles: [
+    {
+      featureType: 'landscape',
+      elementType: 'geometry',
+      stylers: [{ color: '#ebe3cd' }]
+    },
     });
     
     
