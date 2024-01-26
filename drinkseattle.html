@@ -137,23 +137,7 @@ margin: auto;
   transform: scale(1.05); /* Scale up and rotate the map on hover for dynamic movement */
   box-shadow: 0 0 40px rgba(0, 0, 0, 0.7); /* Adjusted box shadow on hover for added depth */
 }
-  #filterWindow {
-    display: none;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 20px;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
-  }
 
-  #filterWindow label {
-    display: block;
-    margin-bottom: 8px;
-  }
   </style>
   <!-- Map Container -->
   <div id="map"></div>
@@ -167,18 +151,10 @@ margin: auto;
       <option value="rating">Rating</option>
       <option value="neighborhood">Neighborhood</option>
     </select>
-    <!-- Button to open filter window -->
-    <button onclick="openFilterWindow()">Filter by Neighborhood</button>
   </div>
 
   <div id="barsContainer" style="margin-top: 20px;">
     <!-- Bar reviews will be displayed here -->
-  </div>
- <!-- Filter Window -->
-  <div id="filterWindow">
-    <h3>Filter by Neighborhood</h3>
-    <div id="neighborhoodFilterOptions"></div>
-    <button onclick="applyFilter()">Apply</button>
   </div>
  </div>
 
