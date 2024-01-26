@@ -141,7 +141,25 @@ margin: auto;
   </style>
   <!-- Map Container -->
   <div id="map"></div>
+<style>
+  #filterWindow {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+  }
 
+  #filterWindow label {
+    display: block;
+    margin-bottom: 8px;
+  }
+</style>
   <!-- Bar Information Container -->
  <div class="container mt-5">
   <!-- Toolbar for sorting and future filtering options -->
@@ -151,12 +169,20 @@ margin: auto;
       <option value="rating">Rating</option>
       <option value="neighborhood">Neighborhood</option>
     </select>
+    <!-- Button to open filter window -->
+    <button onclick="openFilterWindow()">Filter by Neighborhood</button>
   </div>
 
   <div id="barsContainer" style="margin-top: 20px;">
     <!-- Bar reviews will be displayed here -->
   </div>
-</div>
+ <!-- Filter Window -->
+  <div id="filterWindow">
+    <h3>Filter by Neighborhood</h3>
+    <div id="neighborhoodFilterOptions"></div>
+    <button onclick="applyFilter()">Apply</button>
+  </div>
+ </div>
 
   <!-- JavaScript for Google Maps API -->
   <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDS9EmKPBq8kLzNHkv1QE4ERosIpxn0SpQ&callback=initMap"
@@ -322,7 +348,53 @@ function getMarkerIcon(rating) {
       bars.sort((a, b) => a.neighborhood.localeCompare(b.neighborhood));
     }
 
-    // Clear the current barsContainer content
+     // Additional neighborhoods count tracker
+  const neighborhoodsCount = {};
+
+  // Function to open the filter window
+  function openFilterWindow() {
+    const filterWindow = document.getElementById("filterWindow");
+    const neighborhoodFilterOptions = document.getElementById("neighborhoodFilterOptions");
+
+    // Clear previous options
+    neighborhoodFilterOptions.innerHTML = '';
+
+    // Create checkboxes for each neighborhood
+    bars.forEach(bar => {
+      const neighborhood = bar.neighborhood;
+      if (!neighborhoodsCount[neighborhood]) {
+        neighborhoodsCount[neighborhood] = 1;
+      } else {
+        neighborhoodsCount[neighborhood]++;
+      }
+
+      const checkbox = document.createElement("input");
+      checkbox.type = "checkbox";
+      checkbox.name = "neighborhood";
+      checkbox.value = neighborhood;
+      neighborhoodFilterOptions.appendChild(checkbox);
+
+      const label = document.createElement("label");
+      label.appendChild(document.createTextNode(`${neighborhood} (${neighborhoodsCount[neighborhood]})`));
+      neighborhoodFilterOptions.appendChild(label);
+
+      neighborhoodFilterOptions.appendChild(document.createElement("br"));
+    });
+
+    filterWindow.style.display = "block";
+  }
+
+  // Function to apply the neighborhood filter
+  function applyFilter() {
+    const filterWindow = document.getElementById("filterWindow");
+    filterWindow.style.display = "none";
+
+    const selectedNeighborhoods = Array.from(document.querySelectorAll('input[name="neighborhood"]:checked')).map(checkbox => checkbox.value);
+
+
+      
+      
+      // Clear the current barsContainer content
     const barsContainer = document.getElementById("barsContainer");
     barsContainer.innerHTML = '';
 
@@ -332,6 +404,10 @@ function getMarkerIcon(rating) {
     });
   }
 
+
+
+
+    
   </script>
 </body>
 
