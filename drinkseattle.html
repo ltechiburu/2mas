@@ -277,6 +277,8 @@ margin: auto;
      
      // Add more bar data as needed
   ];
+let activeFilter = false;
+let filteredBars = [];
 
   function initMap() {
   const map = new google.maps.Map(document.getElementById('map'), {
@@ -438,8 +440,9 @@ function applyFilter() {
   const selectedNeighborhoods = Array.from(document.querySelectorAll('#filterNeighborhoodDropdown input[type="checkbox"]:checked'))
     .map(checkbox => checkbox.value);
 
-  const filteredBars = bars.filter(bar => selectedNeighborhoods.includes(bar.neighborhood));
-
+ filteredBars = bars.filter(bar => selectedNeighborhoods.includes(bar.neighborhood));
+  activeFilter = true;
+  
   // Clear the current barsContainer content
   const barsContainer = document.getElementById("barsContainer");
   barsContainer.innerHTML = '';
@@ -455,7 +458,8 @@ function clearFilter() {
   checkboxes.forEach(checkbox => {
     checkbox.checked = true;
   });
-
+ 
+  activeFilter = false;
   applyFilter(); // Reapply filter to show all reviews
 }
     // Call the function to generate neighborhood options when the page loads
