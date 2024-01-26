@@ -82,6 +82,23 @@
       font-size: 4.5em; /* Adjust the font size as needed */
       font-weight: 700;
     }
+    
+    .toolbar {
+      /* Your existing toolbar styles */
+      position: relative; /* Ensure relative positioning for absolute dropdown */
+    }
+
+    .neighborhood-dropdown {
+      display: none;
+      position: absolute;
+      background-color: #fff;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+    }
+
+    .toolbar:hover .neighborhood-dropdown {
+      display: block;
+    }
   </style>
 </head>
 
@@ -151,6 +168,14 @@ margin: auto;
       <option value="rating">Rating</option>
       <option value="neighborhood">Neighborhood</option>
     </select>
+      <!-- Hoverable dropdown for Filter by Neighborhood -->
+    <div class="neighborhood-dropdown">
+        <!-- Dynamically populate neighborhood options here -->
+        <!-- For now, let's add a few sample neighborhoods -->
+        <label><input type="checkbox" value="Neighborhood1"> Neighborhood 1</label>
+        <label><input type="checkbox" value="Neighborhood2"> Neighborhood 2</label>
+        <label><input type="checkbox" value="Neighborhood3"> Neighborhood 3</label>
+      </div>
   </div>
 
   <div id="barsContainer" style="margin-top: 20px;">
@@ -335,11 +360,6 @@ function getMarkerIcon(rating) {
       displayBarInfo(bar);
     });
   }
-
-
-
-
-    
   </script>
 </body>
 
