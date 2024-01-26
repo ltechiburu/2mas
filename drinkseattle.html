@@ -207,6 +207,19 @@ function initMap() {
     zoom: 12,
   });
 
+  // Attach click event listeners to each bar name
+  var barNames = document.querySelectorAll('.bar-name');
+
+  barNames.forEach(function (barName) {
+    barName.addEventListener('click', function () {
+      // Find the corresponding marker based on the bar name
+      var barNameText = barName.innerText.split(' - ')[0];
+      var correspondingMarker = findMarkerByName(barNameText);
+
+      // Trigger the marker's click event
+      google.maps.event.trigger(correspondingMarker, 'click');
+    });
+  });
 
     
     
