@@ -35,9 +35,70 @@
     .navbar-inverse {
       border: 0;
     }
+
+    header {
+      background-color: #fff5e1; /* Maroon color */
+      text-align: center;
+      color: #fff; /* White text color, adjust as needed */
+    }
+
+    header .container {
+      padding-top: 100px;
+      padding-bottom: 50px;
+    }
+
+    header .intro-text .name {
+      display: block;
+      text-transform: uppercase;
+      font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 2em;
+      font-weight: 700;
+    }
+
+    header .intro-text .skills {
+      font-size: 1.25em;
+      font-weight: 300;
+    }
+
+    @media(min-width:768px) {
+      header .container {
+        padding-top: 200px;
+        padding-bottom: 100px;
+      }
+
+      header .intro-text .name {
+        font-size: 4.75em;
+      }
+
+      header .intro-text .skills {
+        font-size: 1.75em;
+      }
+    }
+
+    @media(min-width:768px) {
+      .navbar-fixed-top {
+        padding: 25px 0;
+        -webkit-transition: padding .3s;
+        -moz-transition: padding .3s;
+        transition: padding .3s;
+      }
+
+      .navbar-fixed-top .navbar-brand {
+        font-size: 2em;
+        -webkit-transition: all .3s;
+        -moz-transition: all .3s;
+        transition: all .3s;
+      }
+
+      .navbar-fixed-top.navbar-shrink {
+        padding: 10px 0;
+      }
+
+      .navbar-fixed-top.navbar-shrink .navbar-brand {
+        font-size: 1.5em;
+      }
+    }
   </style>
-  <!-- Add more custom styles if needed -->
-  <!-- <link rel="stylesheet" href="path/to/your/custom/main.css"> -->
 </head>
 
 <body id="page-top">
@@ -70,6 +131,17 @@
       </div>
     </div>
   </nav>
+
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <img src="path/to/your/logo.png" alt="Your Logo" class="img-fluid">
+      <div class="intro-text">
+        <div class="intro-heading text-uppercase">Welcome to Your Website</div>
+        <div class="intro-subheading">It's Nice To Meet You</div>
+      </div>
+    </div>
+  </header>
 
   <!-- Your other HTML content goes here -->
 
