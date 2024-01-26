@@ -362,24 +362,40 @@ function getMarkerIcon(rating) {
     barsContainer.appendChild(barElement);
   }
     
-    // Function for sort ability
-    function sortBars() {
-    const sortOptions = document.getElementById("sortOptions");
-    const selectedOption = sortOptions.value;
+   // Function for sort ability
+function sortBars() {
+  const sortOptions = document.getElementById("sortOptions");
+  const selectedOption = sortOptions.value;
 
-    if (selectedOption === "rating") {
+  if (selectedOption === "rating") {
+    if (activeFilter) {
+      // Sort the filtered bars by rating
+      filteredBars.sort((a, b) => b.rating - a.rating);
+    } else {
+      // Sort all bars by rating
       bars.sort((a, b) => b.rating - a.rating);
-    } else if (selectedOption === "neighborhood") {
+    }
+  } else if (selectedOption === "neighborhood") {
+    if (activeFilter) {
+      // Sort the filtered bars by neighborhood
+      filteredBars.sort((a, b) => a.neighborhood.localeCompare(b.neighborhood));
+    } else {
+      // Sort all bars by neighborhood
       bars.sort((a, b) => a.neighborhood.localeCompare(b.neighborhood));
     }
-       // Clear the current barsContainer content
-    const barsContainer = document.getElementById("barsContainer");
-    barsContainer.innerHTML = '';
-       // Display the sorted bars
-      bars.forEach(bar => {
-   displayBarInfo(bar);
-});
-    }
+  }
+
+  // Clear the current barsContainer content
+  const barsContainer = document.getElementById("barsContainer");
+  barsContainer.innerHTML = '';
+
+  // Display the sorted bars
+  const barsToDisplay = activeFilter ? filteredBars : bars;
+  barsToDisplay.forEach(bar => {
+    displayBarInfo(bar);
+  });
+}
+
     
 // Function to generate neighborhood options
     function generateNeighborhoodOptions() {
