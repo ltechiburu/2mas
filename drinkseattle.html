@@ -367,15 +367,15 @@ function getMarkerIcon(rating) {
     const selectedOption = sortOptions.value;
 
     if (selectedOption === "rating") {
-      filteredBars.sort((a, b) => b.rating - a.rating);
+      bars.sort((a, b) => b.rating - a.rating);
     } else if (selectedOption === "neighborhood") {
-      filteredBars.sort((a, b) => a.neighborhood.localeCompare(b.neighborhood));
+      bars.sort((a, b) => a.neighborhood.localeCompare(b.neighborhood));
     }
        // Clear the current barsContainer content
     const barsContainer = document.getElementById("barsContainer");
     barsContainer.innerHTML = '';
        // Display the sorted bars
-      filteredBars.forEach(bar => {
+      bars.forEach(bar => {
    displayBarInfo(bar);
 });
     }
