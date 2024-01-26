@@ -295,7 +295,6 @@ let filteredBars = [];
       icon: getMarkerIcon(bar.rating), // Set the marker icon based on rating
     });
 
-
     const infowindow = new google.maps.InfoWindow({
       content: `<div id="${bar.name.replace(/\s+/g, '')}" style="font-size:16px;"><strong class="bar-marker">${bar.name}</strong> - <em>${bar.neighborhood}</em></div>` +
       `<div style="font-size:18px;">Rating: ${getRatingStars(bar.rating)}</div>` +
@@ -307,18 +306,19 @@ let filteredBars = [];
     });
 
     // Add an event listener to scroll to the map container when the anchor is clicked
-  infowindow.addListener('domready', function () {
-    document.getElementById(bar.name.replace(/\s+/g, '')).addEventListener('click', function () {
-      document.getElementById("map").scrollIntoView({ behavior: 'smooth' });
-  
+    infowindow.addListener('domready', function () {
+      document.getElementById(bar.name.replace(/\s+/g, '')).addEventListener('click', function () {
+        document.getElementById("map").scrollIntoView({ behavior: 'smooth' });
+      });
+    });
   });
-  });
-});
+
   // Display bar information below the map
   bars.forEach(bar => {
     displayBarInfo(bar);
   });
 }
+
 
 // Helper function to get marker icon based on rating
 function getMarkerIcon(rating) {
