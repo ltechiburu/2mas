@@ -325,48 +325,6 @@ function getMarkerIcon(rating) {
      // Additional neighborhoods count tracker
   const neighborhoodsCount = {};
 
-  // Function to open the filter window
-  function openFilterWindow() {
-    const filterWindow = document.getElementById("filterWindow");
-    const neighborhoodFilterOptions = document.getElementById("neighborhoodFilterOptions");
-
-    // Clear previous options
-    neighborhoodFilterOptions.innerHTML = '';
-
-    // Create checkboxes for each neighborhood
-    bars.forEach(bar => {
-      const neighborhood = bar.neighborhood;
-      if (!neighborhoodsCount[neighborhood]) {
-        neighborhoodsCount[neighborhood] = 1;
-      } else {
-        neighborhoodsCount[neighborhood]++;
-      }
-
-      const checkbox = document.createElement("input");
-      checkbox.type = "checkbox";
-      checkbox.name = "neighborhood";
-      checkbox.value = neighborhood;
-      neighborhoodFilterOptions.appendChild(checkbox);
-
-      const label = document.createElement("label");
-      label.appendChild(document.createTextNode(`${neighborhood} (${neighborhoodsCount[neighborhood]})`));
-      neighborhoodFilterOptions.appendChild(label);
-
-      neighborhoodFilterOptions.appendChild(document.createElement("br"));
-    });
-
-    filterWindow.style.display = "block";
-  }
-
-  // Function to apply the neighborhood filter
-  function applyFilter() {
-    const filterWindow = document.getElementById("filterWindow");
-    filterWindow.style.display = "none";
-
-    const selectedNeighborhoods = Array.from(document.querySelectorAll('input[name="neighborhood"]:checked')).map(checkbox => checkbox.value);
-
-
-      
       
       // Clear the current barsContainer content
     const barsContainer = document.getElementById("barsContainer");
