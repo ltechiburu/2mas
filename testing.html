@@ -252,17 +252,15 @@ margin: auto;
 
 // Helper function to get marker icon based on rating
 function getMarkerIcon(rating) {
-  const numericRating = extractNumericRating(rating);
-
-  if (!isNaN(numericRating)) {
-    if (numericRating >= 4) {
+  if (!isNaN(rating)) {
+    if (rating >= 4) {
       return {
         url: 'http://maps.google.com/mapfiles/ms/icons/green-dot.png',
-        scaledSize: new google.maps.Size(32, 32), // Adjust the size as needed
+        scaledSize: new google.maps.Size(32, 32),
         origin: new google.maps.Point(0, 0),
         anchor: new google.maps.Point(16, 32),
       };
-    } else if (numericRating >= 3) {
+    } else if (rating >= 3) {
       return {
         url: 'http://maps.google.com/mapfiles/ms/icons/yellow-dot.png',
         scaledSize: new google.maps.Size(32, 32),
@@ -279,6 +277,7 @@ function getMarkerIcon(rating) {
     anchor: new google.maps.Point(16, 32),
   };
 }
+
 
   // Helper function to get star ratings
   function getRatingStars(rating) {
