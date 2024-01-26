@@ -395,11 +395,7 @@ function getMarkerIcon(rating) {
       // Clear existing options
       neighborhoodDropdown.innerHTML = '';
 
-       // Add Apply button
-  const applyButton = document.createElement("button");
-  applyButton.innerText = "Apply";
-  applyButton.addEventListener("click", applyFilter);
-  neighborhoodDropdown.appendChild(applyButton);
+
       
       // Populate neighborhood options
       uniqueNeighborhoods.forEach(neighborhood => {
@@ -415,23 +411,6 @@ function getMarkerIcon(rating) {
     }
 
 
-    // Apply filter function
-function applyFilter() {
-  const selectedNeighborhoods = Array.from(document.querySelectorAll('.neighborhood-dropdown input:checked'))
-    .map(checkbox => checkbox.value);
-
-  // Filter bars based on selected neighborhoods
-  const filteredBars = bars.filter(bar => selectedNeighborhoods.includes(bar.neighborhood));
-
-  // Clear the current barsContainer content
-  const barsContainer = document.getElementById("barsContainer");
-  barsContainer.innerHTML = '';
-
-  // Display the filtered bars
-  filteredBars.forEach(bar => {
-    displayBarInfo(bar);
-  });
-}
     // Call the function to generate neighborhood options when the page loads
     generateNeighborhoodOptions();
 
