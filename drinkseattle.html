@@ -396,8 +396,7 @@ function getMarkerIcon(rating) {
 // Add Apply button
   const applyButton = document.createElement("button");
   applyButton.innerText = "Apply";
-  // For now, clicking Apply will do nothing
-  applyButton.addEventListener("click", () => {});
+  applyButton.addEventListener("click", applyFilter);
   neighborhoodDropdown.appendChild(applyButton);
       
       // Populate neighborhood options
@@ -413,7 +412,22 @@ function getMarkerIcon(rating) {
       });
     }
 
+// Function to apply the selected filter
+function applyFilter() {
+  const selectedNeighborhoods = Array.from(document.querySelectorAll('#filterNeighborhoodDropdown input[type="checkbox"]:checked'))
+    .map(checkbox => checkbox.value);
 
+  const filteredBars = bars.filter(bar => selectedNeighborhoods.includes(bar.neighborhood));
+
+  // Clear the current barsContainer content
+  const barsContainer = document.getElementById("barsContainer");
+  barsContainer.innerHTML = '';
+
+  // Display the filtered bars
+  filteredBars.forEach(bar => {
+    displayBarInfo(bar);
+  });
+}
     // Call the function to generate neighborhood options when the page loads
     generateNeighborhoodOptions();
 
