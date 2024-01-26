@@ -35,6 +35,16 @@
     .navbar-inverse {
       border: 0;
     }
+/* Additional style for the dynamic text in the navbar */
+.navbar .dynamic-text {
+  color: #800000; /* Maroon color */
+  font-size: 1.5em; /* Adjust the font size as needed */
+}
+
+/* Initially set to display none - modify this if you want it to be initially visible */
+.navbar .dynamic-text {
+  display: none;
+}
 
     header {
       position: relative;
@@ -42,14 +52,7 @@
       text-align: center;
       color: #fff; /* White text color, adjust as needed */
     }
- /* Additional style for the dynamic text */
-    header .dynamic-text {
-      /* Initially set the display to none */
-      display: none;
-      /* Add styling for the dynamic text (maroon color, font size, etc.) */
-      color: #800000; /* Maroon color */
-      font-size: 1.5em; /* Adjust the font size as needed */
-    }
+
     header .container {
       padding-top: 100px;
       padding-bottom: 50px;
