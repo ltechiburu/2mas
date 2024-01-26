@@ -183,7 +183,7 @@ margin: auto;
   <div class="container mt-5">
     <!-- Toolbar for sorting and future filtering options -->
     <div class="toolbar" style="background-color: #4d1c31; padding: 10px; margin-bottom: 10px;">
-      <div class="dropdown-container">
+<div class="dropdown-container" onmouseover="showDropdown()" onmouseout="hideDropdown()">
         <!-- Filter by Neighborhood tab -->
         <div class="filter-tab">
           <span style="cursor: pointer; color: white;">Filter by Neighborhood ▼</span>
@@ -399,7 +399,17 @@ function getMarkerIcon(rating) {
     // Call the function to generate neighborhood options when the page loads
     generateNeighborhoodOptions();
 
-      
+//Generating dropdown
+function showDropdown() {
+  const dropdown = document.querySelector(".neighborhood-dropdown");
+  dropdown.style.display = "block";
+}
+
+function hideDropdown() {
+  const dropdown = document.querySelector(".neighborhood-dropdown");
+  dropdown.style.display = "none";
+}
+
       // Clear the current barsContainer content
     const barsContainer = document.getElementById("barsContainer");
     barsContainer.innerHTML = '';
