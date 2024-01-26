@@ -385,7 +385,6 @@ function getMarkerIcon(rating) {
     function generateNeighborhoodOptions() {
       const neighborhoodDropdown = document.getElementById("filterNeighborhoodDropdown");
       const uniqueNeighborhoods = [...new Set(bars.map(bar => bar.neighborhood))];
-
       // Count reviews for each neighborhood
   const neighborhoodsCount = uniqueNeighborhoods.reduce((count, neighborhood) => {
     count[neighborhood] = bars.filter(bar => bar.neighborhood === neighborhood).length;
@@ -396,6 +395,12 @@ function getMarkerIcon(rating) {
       // Clear existing options
       neighborhoodDropdown.innerHTML = '';
 
+       // Add Apply button
+  const applyButton = document.createElement("button");
+  applyButton.innerText = "Apply";
+  applyButton.addEventListener("click", applyFilter);
+  neighborhoodDropdown.appendChild(applyButton);
+      
       // Populate neighborhood options
       uniqueNeighborhoods.forEach(neighborhood => {
         const label = document.createElement("label");
