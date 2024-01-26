@@ -388,6 +388,8 @@ function getMarkerIcon(rating) {
       const neighborhoodDropdown = document.getElementById("filterNeighborhoodDropdown");
       const uniqueNeighborhoods = [...new Set(bars.map(bar => bar.neighborhood))];
 
+      // Sort neighborhoods alphabetically
+  uniqueNeighborhoods.sort();
       // Clear existing options
       neighborhoodDropdown.innerHTML = '';
 
