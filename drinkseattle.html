@@ -415,14 +415,19 @@ function getMarkerIcon(rating) {
         neighborhoodDropdown.appendChild(label);
       });
     }
-
-// Function to apply the selected filter
+  
+    // Function to apply the selected filter
 function applyFilter() {
-  const selectedNeighborhoods = Array.from(document.querySelectorAll('#filterNeighborhoodDropdown input[type="checkbox"]:checked'))
-    .map(checkbox => checkbox.value);
+  const selectedNeighborhoods = getSelectedNeighborhoods();
 
-  const filteredBars = bars.filter(bar => selectedNeighborhoods.includes(bar.neighborhood));
+  filteredBars = bars.filter(bar => selectedNeighborhoods.includes(bar.neighborhood));
 
+  // Display the filtered bars
+  displayFilteredBars();
+}
+
+// Function to display the filtered bars
+function displayFilteredBars() {
   // Clear the current barsContainer content
   const barsContainer = document.getElementById("barsContainer");
   barsContainer.innerHTML = '';
@@ -432,15 +437,42 @@ function applyFilter() {
     displayBarInfo(bar);
   });
 }
-    // Function to clear the filter
+
+// Function to clear the filter
 function clearFilter() {
   const checkboxes = document.querySelectorAll('#filterNeighborhoodDropdown input[type="checkbox"]');
   checkboxes.forEach(checkbox => {
-    checkbox.checked = true;
+    checkbox.checked = false;
   });
 
-  applyFilter(); // Reapply filter to show all reviews
+  // Reset filteredBars to show all bars
+  filteredBars = [...bars];
+
+  // Reapply the filter
+  applyFilter();
 }
+
+// Function to sort the displayed bars
+function sortFilteredBars() {
+  const sortOptions = document.getElementById("sortOptions");
+  const selectedOption = sortOptions.value;
+
+  if (selectedOption === "rating") {
+    filteredBars.sort((a, b) => b.rating - a.rating);
+  } else if (selectedOption === "neighborhood") {
+    filteredBars.sort((a, b) => a.neighborhood.localeCompare(b.neighborhood));
+  }
+
+  // Display the sorted bars
+  displayFilteredBars();
+}
+
+// Function to get selected neighborhoods
+function getSelectedNeighborhoods() {
+  return Array.from(document.querySelectorAll('#filterNeighborhoodDropdown input[type="checkbox"]:checked'))
+    .map(checkbox => checkbox.value);
+}
+
     // Call the function to generate neighborhood options when the page loads
     generateNeighborhoodOptions();
 
