@@ -297,14 +297,20 @@ let filteredBars = [];
 
 
     const infowindow = new google.maps.InfoWindow({
-      content: `<div style="font-size:16px;"><strong class="bar-marker">${bar.name}</strong> - <em>${bar.neighborhood}</em></div>` +
-        `<div style="font-size:18px;">Rating: ${getRatingStars(bar.rating)}</div>` +
-        `<div style="font-size:14px;">${bar.description}</div>`
+      content: `<div id="${bar.name.replace(/\s+/g, '')}" style="font-size:16px;"><strong class="bar-marker">${bar.name}</strong> - <em>${bar.neighborhood}</em></div>` +
+      `<div style="font-size:18px;">Rating: ${getRatingStars(bar.rating)}</div>` +
+      `<div style="font-size:14px;">${bar.description}</div>`
     });
 
     marker.addListener('click', function () {
       infowindow.open(map, marker);
     });
+
+    // Add an event listener to scroll to the map container when the anchor is clicked
+  infowindow.addListener('domready', function () {
+    document.getElementById(bar.name.replace(/\s+/g, '')).addEventListener('click', function () {
+      document.getElementById("map").scrollIntoView({ behavior: 'smooth' });
+  
   });
 
   // Display bar information below the map
@@ -352,14 +358,13 @@ function getMarkerIcon(rating) {
 
   function displayBarInfo(bar) {
     const barsContainer = document.getElementById("barsContainer");
-
     const barElement = document.createElement("div");
     barElement.classList.add("bar-info");
-
-    barElement.innerHTML = `<div class="bar-name"><strong>${bar.name}</strong> - <span class="neighborhood"><em>${bar.neighborhood}</em></span></div>` +
-      `<div>${getRatingStars(bar.rating)}</div>` +
-      `<div class="description">${bar.description}</div>` +
-      `<hr>`;
+    
+    barElement.innerHTML = `<a href="#${bar.name.replace(/\s+/g, '')}"><div class="bar-name"><strong>${bar.name}</strong> - <span class="neighborhood"><em>${bar.neighborhood}</em></span></div></a>` +
+    `<div>${getRatingStars(bar.rating)}</div>` +
+    `<div class="description">${bar.description}</div>` +
+    `<hr>`;
 
     barsContainer.appendChild(barElement);
   }
