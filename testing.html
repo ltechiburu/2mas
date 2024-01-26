@@ -300,30 +300,6 @@ function getMarkerIcon(rating) {
 
     barsContainer.appendChild(barElement);
   }
-    
-   // Helper function to sort bars based on selected option
-function sortBars(sortOption) {
-  if (sortOption === "rating") {
-    bars.sort((a, b) => b.rating - a.rating);
-  } else if (sortOption === "neighborhood") {
-    bars.sort((a, b) => a.neighborhood.localeCompare(b.neighborhood));
-  }
-}
-
-// Helper function to sort bars and update display
-function sortBarsAndUpdateDisplay() {
-  const sortOptions = document.getElementById("sortOptions");
-  const selectedSortOption = sortOptions.value;
-  sortBars(selectedSortOption); // Sort bars based on selected option
-  displayBarsInfo(); // Update the displayed bar information below the map
-}
-
-// Existing JavaScript code
-
-// Update the onchange attribute of the sortOptions select element
-document.getElementById("sortOptions").addEventListener("change", sortBarsAndUpdateDisplay);
-
-    // ... (Your existing JavaScript code for sorting and additional functionalities)
   </script>
 </body>
 
