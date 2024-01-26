@@ -37,11 +37,19 @@
     }
 
     header {
+      position: relative;
       background-color: #4d1c31; /* Maroon color */
       text-align: center;
       color: #fff; /* White text color, adjust as needed */
     }
-
+ /* Additional style for the dynamic text */
+    header .dynamic-text {
+      /* Initially set the display to none */
+      display: none;
+      /* Add styling for the dynamic text (maroon color, font size, etc.) */
+      color: #800000; /* Maroon color */
+      font-size: 1.5em; /* Adjust the font size as needed */
+    }
     header .container {
       padding-top: 100px;
       padding-bottom: 50px;
@@ -154,6 +162,8 @@
           avoid. A yellow pin means decide for yourself
         </div>
       </div>
+      <!-- Dynamic text element -->
+      <div class="dynamic-text" id="dynamicText">DRINKSEATTLE</div>
     </div>
   </header>
 
@@ -468,8 +478,22 @@ function toggleDropdown() {
   dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
 }
 
-   
+   // Add a scroll event listener to toggle the visibility of the dynamic text
+    document.addEventListener('scroll', function () {
+      // Get the height of the maroon header
+      var maroonHeaderHeight = document.querySelector('header').offsetHeight;
+      // Get the scroll position
+      var scrollPosition = window.scrollY;
 
+      // Check if the scroll position is greater than or equal to the maroon header height
+      if (scrollPosition >= maroonHeaderHeight) {
+        // Show the dynamic text
+        document.getElementById('dynamicText').style.display = 'block';
+      } else {
+        // Hide the dynamic text
+        document.getElementById('dynamicText').style.display = 'none';
+      }
+    });
 
     
   </script>
