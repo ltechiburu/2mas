@@ -205,24 +205,7 @@ function initMap() {
   var map = new google.maps.Map(document.getElementById('map'), {
     center: { lat: 47.6062, lng: -122.3321 }, // Seattle coordinates
     zoom: 12,
-  });
-
-  // Attach click event listeners to each bar name
-  var barNames = document.querySelectorAll('.bar-name');
-
-  barNames.forEach(function (barName) {
-    barName.addEventListener('click', function () {
-      // Find the corresponding marker based on the bar name
-      var barNameText = barName.innerText.split(' - ')[0];
-      var correspondingMarker = findMarkerByName(barNameText);
-
-      // Trigger the marker's click event
-      google.maps.event.trigger(correspondingMarker, 'click');
-    });
-  });
-
-    
-    
+  });    
      // Add markers and info windows
     addMarker(map, 47.61408822189972, -122.31873314450276, "Capitol Hill", "Cha Cha Lounge", "&#9733;&#9733;&#9733;&#189;", "Dark basement bar. Loud and stuffy on weekend nights.");
     addMarker(map, 47.61422207930257, -122.31974761189863, "Capitol Hill", "Comet Tavern", "&#9733;&#9733;&#9733;", "Fun for a typical Capitol Hill weekend experience. DJ, dance floor, plenty of seating attracts a young crowd looking for a party.");
@@ -295,16 +278,6 @@ function addMarker(map, latitude, longitude, neighborhood, barName, rating, desc
   marker.addListener('click', function () {
     infowindow.open(map, marker);
   });
-// Add event listener to the bar name in the marker's info window
-    google.maps.event.addListener(infowindow, 'domready', function () {
-      var barMarkerElement = document.querySelector('.bar-marker');
-      if (barMarkerElement) {
-        barMarkerElement.addEventListener('click', function () {
-          // You can add your desired action here
-          console.log("Bar marker name clicked!");
-        });
-      }
-    });
   }   
   // Function to get marker icon based on rating
 
