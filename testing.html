@@ -1,92 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Website</title>
-    <style>
-        /* Your existing styles... */
-
-        .navbar {
-            margin-bottom: 0;
-            border: none;
-            border-radius: 0;
-            padding: 15px;
-            background-color: #333;
-            color: #fff;
-        }
-
-        .navbar a {
-            color: #fff !important;
-        }
-
-        .navbar-toggle {
-            background-color: #fff;
-        }
-
-        .navbar-toggle .icon-bar {
-            background-color: #333;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Your Website Title</title>
+  <link rel="stylesheet" href="_includes/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="_includes/css/your/main.css">
 </head>
-<body>
-    <nav class="navbar navbar-default navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header page-scroll">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#page-top">Your Website</a>
-            </div>
 
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="hidden">
-                        <a href="#page-top"></a>
-                    </li>
-                    <li class="page-scroll">
-                        <a href="#portfolio">Portfolio</a>
-                    </li>
-                    <li class="page-scroll">
-                        <a href="#about">About</a>
-                    </li>
-                    <li class="page-scroll">
-                        <a href="#contact">Contact</a>
-                    </li>
-                    <li class="dropdown">
-                        <a href="{{ site.baseurl }}/drinkseattle.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Links <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="{{ site.baseurl }}/drinkseattle.html">DrinkSeattle</a></li>
-                            <!-- Add more dropdown options as needed -->
-                        </ul>
-                    </li>
-                    <li class="page-scroll">
-                        <a href="https://www.google.com/" target="_blank">Have a Question?</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+<body id="page-top">
+  <!-- Navigation -->
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header page-scroll">
+        <button type="button" class="navbar-toggle" data-toggle="collapse"
+          data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#page-top">{{ site.title }}</a>
+      </div>
 
-    <header>
-        <h1>Your Website</h1>
-        <!-- Rest of your header content... -->
-    </header>
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+          <li class="hidden">
+            <a href="#page-top"></a>
+          </li>
+          <li class="page-scroll">
+            <a href="#portfolio">Portfolio</a>
+          </li>
+          <li class="page-scroll">
+            <a href="#about">About</a>
+          </li>
+          <li class="page-scroll">
+            <a href="#contact">Contact</a>
+          </li>
+          <!-- Dropdown Start -->
+          <li class="dropdown">
+            <a href="{{ site.baseurl }}/drinkseattle.html" class="dropdown-toggle" data-toggle="dropdown" role="button"
+              aria-haspopup="true" aria-expanded="false">Links <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="{{ site.baseurl }}/drinkseattle.html">DrinkSeattle</a></li>
+              <!-- Add more dropdown options as needed -->
+            </ul>
+          </li>
+          <!-- Dropdown End -->
+          <!-- Add the new element "Have a Question?" with Google URL -->
+          <li class="page-scroll">
+            <a href="https://www.google.com/" target="_blank">Have a Question?</a>
+          </li>
+        </ul>
+      </div>
+      <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+  </nav>
 
-    <main>
-        <section>
-            <h2>Welcome to Your Website</h2>
-            <p>This is the main content of your website.</p>
-        </section>
-    </main>
+  <!-- Your other HTML content goes here -->
 
-    <footer>
-        <p>&copy; 2024 Your Website</p>
-    </footer>
-
-    <!-- Your existing scripts... -->
+  <!-- Include necessary JS files -->
+  <script src="js/jquery.easing.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
 </body>
+
 </html>
