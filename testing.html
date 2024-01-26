@@ -225,22 +225,7 @@ margin: auto;
 
   // Add markers and info windows
   bars.forEach(bar => {
-    // Determine marker color based on rating
-    let markerColor;
-    if (bar.rating < 2.5) {
-      markerColor = 'red';
-    } else if (bar.rating >= 2.5 && bar.rating < 4) {
-      markerColor = 'yellow';
-    } else {
-      markerColor = 'green';
-    }
-
-    const marker = new google.maps.Marker({
-      position: { lat: bar.lat, lng: bar.lng },
-      map: map,
-      title: bar.name,
-      icon: getMarkerIcon(markerColor), // Use custom marker icon based on rating
-    });
+   
 
     const infowindow = new google.maps.InfoWindow({
       content: `<div style="font-size:16px;"><strong class="bar-marker">${bar.name}</strong> - <em>${bar.neighborhood}</em></div>` +
@@ -258,18 +243,36 @@ margin: auto;
     displayBarInfo(bar);
   });
 }
-// Helper function to get marker icon based on color
-function getMarkerIcon(color) {
+
+// Helper function to get marker icon based on rating
+function getMarkerIcon(rating) {
+  const numericRating = extractNumericRating(rating);
+
+  if (!isNaN(numericRating)) {
+    if (numericRating >= 4) {
+      return {
+        url: 'http://maps.google.com/mapfiles/ms/icons/green-dot.png',
+        scaledSize: new google.maps.Size(32, 32), // Adjust the size as needed
+        origin: new google.maps.Point(0, 0),
+        anchor: new google.maps.Point(16, 32),
+      };
+    } else if (numericRating >= 3) {
+      return {
+        url: 'http://maps.google.com/mapfiles/ms/icons/yellow-dot.png',
+        scaledSize: new google.maps.Size(32, 32),
+        origin: new google.maps.Point(0, 0),
+        anchor: new google.maps.Point(16, 32),
+      };
+    }
+  }
+
   return {
-    path: google.maps.SymbolPath.BACKWARD_CLOSED_ARROW,
-    fillColor: color,
-    fillOpacity: 1,
-    strokeColor: 'black',
-    strokeWeight: 1,
-    scale: 8,
+    url: 'http://maps.google.com/mapfiles/ms/icons/red-dot.png',
+    scaledSize: new google.maps.Size(32, 32),
+    origin: new google.maps.Point(0, 0),
+    anchor: new google.maps.Point(16, 32),
   };
 }
-
 
   // Helper function to get star ratings
   function getRatingStars(rating) {
