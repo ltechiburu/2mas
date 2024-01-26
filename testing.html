@@ -321,11 +321,7 @@ function sortBarsAndUpdateDisplay() {
 // Existing JavaScript code
 
 // Update the onchange attribute of the sortOptions select element
-<select id="sortOptions" onchange="sortBarsAndUpdateDisplay()">
-  <option value="rating">Rating</option>
-  <option value="neighborhood">Neighborhood</option>
-</select>
-
+document.getElementById("sortOptions").addEventListener("change", sortBarsAndUpdateDisplay);
 
     // ... (Your existing JavaScript code for sorting and additional functionalities)
   </script>
