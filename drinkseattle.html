@@ -398,7 +398,11 @@ function getMarkerIcon(rating) {
   applyButton.innerText = "Apply";
   applyButton.addEventListener("click", applyFilter);
   neighborhoodDropdown.appendChild(applyButton);
-      
+      // Add Clear Filter button
+  const clearFilterButton = document.createElement("button");
+  clearFilterButton.innerText = "Clear Filter";
+  clearFilterButton.addEventListener("click", clearFilter); // Attach the clear filter function
+  neighborhoodDropdown.appendChild(clearFilterButton);
       // Populate neighborhood options
       uniqueNeighborhoods.forEach(neighborhood => {
         const label = document.createElement("label");
@@ -427,6 +431,15 @@ function applyFilter() {
   filteredBars.forEach(bar => {
     displayBarInfo(bar);
   });
+}
+    // Function to clear the filter
+function clearFilter() {
+  const checkboxes = document.querySelectorAll('#filterNeighborhoodDropdown input[type="checkbox"]');
+  checkboxes.forEach(checkbox => {
+    checkbox.checked = false;
+  });
+
+  applyFilter(); // Reapply filter to show all reviews
 }
     // Call the function to generate neighborhood options when the page loads
     generateNeighborhoodOptions();
