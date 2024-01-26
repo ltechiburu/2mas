@@ -200,18 +200,22 @@ margin: auto;
     alert("Error loading Google Maps API. Check the console for details.");
   }
 
-  // Initialize the map and add markers
-  function initMap() {
-    var map = new google.maps.Map(document.getElementById('map'), {
-      center: {lat: 47.6062, lng: -122.3321}, // Seattle coordinates
-      zoom: 12,
-	styles: [
-    {
-      featureType: 'landscape',
-      elementType: 'geometry',
-      stylers: [{ color: '#ebe3cd' }]
-    },
-    });
+ // Initialize the map and add markers
+function initMap() {
+  var map = new google.maps.Map(document.getElementById('map'), {
+    center: { lat: 47.6062, lng: -122.3321 }, // Seattle coordinates
+    zoom: 12,
+    styles: [
+      {
+        featureType: 'landscape',
+        elementType: 'geometry',
+        stylers: [{ color: '#ebe3cd' }]
+      },
+      // Add more style rules as needed
+    ]
+  });
+}
+
     
     
      // Add markers and info windows
