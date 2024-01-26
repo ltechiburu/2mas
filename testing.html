@@ -2,7 +2,87 @@
 <html lang="en">
 
 <head>
-  <!-- Meta tags, title, and stylesheets go here -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>DrinkSeattle</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js">
+  <style>
+    body {
+      overflow-x: hidden;
+    }
+
+    .navbar {
+      text-transform: uppercase;
+      font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-weight: 700;
+    }
+
+    .navbar a:focus {
+      outline: 0;
+    }
+
+    .navbar .navbar-nav {
+      letter-spacing: 1px;
+    }
+
+    .navbar .navbar-nav li a:focus {
+      outline: 0;
+    }
+
+    .navbar-default,
+    .navbar-inverse {
+      border: 0;
+    }
+
+    header {
+      background-color: #4d1c31; /* Maroon color */
+      text-align: center;
+      color: #fff; /* White text color, adjust as needed */
+    }
+
+    header .container {
+      padding-top: 100px;
+      padding-bottom: 50px;
+    }
+
+    @media(min-width:768px) {
+      header .container {
+        padding-top: 200px;
+        padding-bottom: 100px;
+      }
+
+      .navbar-fixed-top {
+        padding: 25px 0;
+        -webkit-transition: padding .3s;
+        -moz-transition: padding .3s;
+        transition: padding .3s;
+      }
+
+      .navbar-fixed-top .navbar-brand {
+        font-size: 2em;
+        -webkit-transition: all .3s;
+        -moz-transition: all .3s;
+        transition: all .3s;
+      }
+
+      .navbar-fixed-top.navbar-shrink {
+        padding: 10px 0;
+      }
+
+      .navbar-fixed-top.navbar-shrink .navbar-brand {
+        font-size: 1.5em;
+      }
+    }
+
+    /* Additional styles for the header */
+    header .intro-text .page-title {
+      font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 4.5em; /* Adjust the font size as needed */
+      font-weight: 700;
+    }
+  </style>
 </head>
 
 <body id="page-top">
