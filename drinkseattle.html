@@ -143,23 +143,20 @@ margin: auto;
   <div id="map"></div>
 
   <!-- Bar Information Container -->
-  <div id="barsContainer" class="container mt-5">
-    <!-- Toolbar for sorting and future filtering options -->
+ <div class="container mt-5">
+  <!-- Toolbar for sorting and future filtering options -->
   <div class="toolbar" style="background-color: #4d1c31; padding: 10px; margin-bottom: 10px;">
     <label for="sortOptions" style="color: white;">Sort By:</label>
     <select id="sortOptions" onchange="sortBars()" style="color: black; background-color: #ffffff;">
-        <option value="rating">Rating</option>
-        <option value="neighborhood">Neighborhood</option>
-      </select>
-    </div>
-    <!-- Add the style directly within the body section -->
-    <style>
-      #sortOptions option[value="rating"],
-      #sortOptions option[value="neighborhood"] {
-        color: black; /* Change this to the color you desire */
-      }
-    </style>
+      <option value="rating">Rating</option>
+      <option value="neighborhood">Neighborhood</option>
+    </select>
   </div>
+
+  <div id="barsContainer" style="margin-top: 20px;">
+    <!-- Bar reviews will be displayed here -->
+  </div>
+</div>
 
   <!-- JavaScript for Google Maps API -->
   <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDS9EmKPBq8kLzNHkv1QE4ERosIpxn0SpQ&callback=initMap"
