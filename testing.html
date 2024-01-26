@@ -131,7 +131,27 @@
   <!-- JavaScript for Google Maps API -->
   <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDS9EmKPBq8kLzNHkv1QE4ERosIpxn0SpQ&callback=initMap"
     onerror="handleError()"></script>
+<style>
+    /* Add any custom styles for your map container if needed */
+ #map {
+  background: #000080; /* Deep Blue Color */
+/* Gradient with vibrant colors */
+  border: 3px solid #4d1c31; /* Maroon outline for contrast */
+  border-radius: 25px; /* Larger border radius for a unique shape */
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5); /* Stronger box shadow for depth */
+  height: 400px;
+  width: 80%;
+margin: auto;
+  transform-origin: center center;
+  transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out; /* Add transitions for dynamic effects */
+}
 
+#map:hover {
+  transform: scale(1.05); /* Scale up and rotate the map on hover for dynamic movement */
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.7); /* Adjusted box shadow on hover for added depth */
+}
+
+  </style>
   <!-- Map Container -->
   <div id="map"></div>
 
