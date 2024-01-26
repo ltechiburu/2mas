@@ -37,7 +37,7 @@
     }
 
     header {
-      background-color: #fff5e1; /* Maroon color */
+      background-color: #4d1c31; /* Maroon color */
       text-align: center;
       color: #fff; /* White text color, adjust as needed */
     }
@@ -105,7 +105,7 @@
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
     <div class="container">
-      <a class="navbar-brand" href="#page-top">Your Website</a>
+      <a class="navbar-brand" href="#page-top">Tomas Echiburu</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
         aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -121,10 +121,16 @@
           <li class="nav-item">
             <a class="nav-link" href="#contact">Contact</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/2mas/drinkseattle.html">DrinkSeattle</a>
-          </li>
-          <li class="nav-item">
+             <!-- Dropdown Start -->
+<li class="dropdown">
+  <a href="{{ site.baseurl }}/drinkseattle.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Links <span class="caret"></span></a>
+  <ul class="dropdown-menu">
+    <li><a href="{{ site.baseurl }}/drinkseattle.html">DrinkSeattle</a></li>
+    <!-- Add more dropdown options as needed -->
+  </ul>
+</li>
+<!-- Dropdown End -->
+
             <a class="nav-link" href="https://www.google.com/" target="_blank">Have a Question?</a>
           </li>
         </ul>
@@ -137,8 +143,8 @@
     <div class="container">
       <img src="path/to/your/logo.png" alt="Your Logo" class="img-fluid">
       <div class="intro-text">
-        <div class="intro-heading text-uppercase">Welcome to Your Website</div>
-        <div class="intro-subheading">It's Nice To Meet You</div>
+        <div class="intro-heading text-uppercase">SeattleDrinks</div>
+        <div class="intro-subheading">After 7 years in Seattle, I have found myself enjoying happy hour beers, post-bike ride rewards, late night cocktails, and more, all around the city. Below is a guide with some of the most notable places I have frequented over the years.</div>
       </div>
     </div>
   </header>
