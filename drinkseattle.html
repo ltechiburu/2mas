@@ -436,7 +436,7 @@ function applyFilter() {
 function clearFilter() {
   const checkboxes = document.querySelectorAll('#filterNeighborhoodDropdown input[type="checkbox"]');
   checkboxes.forEach(checkbox => {
-    checkbox.checked = false;
+    checkbox.checked = true;
   });
 
   applyFilter(); // Reapply filter to show all reviews
