@@ -225,12 +225,21 @@ margin: auto;
 
   // Add markers and info windows
   bars.forEach(bar => {
+    // Determine marker color based on rating
+    let markerColor;
+    if (bar.rating < 2.5) {
+      markerColor = 'red';
+    } else if (bar.rating >= 2.5 && bar.rating < 4) {
+      markerColor = 'yellow';
+    } else {
+      markerColor = 'green';
+    }
+
     const marker = new google.maps.Marker({
       position: { lat: bar.lat, lng: bar.lng },
       map: map,
       title: bar.name,
-      // Use a default marker icon for now
-      // icon: getMarkerIcon(bar.rating)
+      icon: getMarkerIcon(markerColor), // Use custom marker icon based on rating
     });
 
     const infowindow = new google.maps.InfoWindow({
@@ -248,6 +257,17 @@ margin: auto;
   bars.forEach(bar => {
     displayBarInfo(bar);
   });
+}
+// Helper function to get marker icon based on color
+function getMarkerIcon(color) {
+  return {
+    path: google.maps.SymbolPath.BACKWARD_CLOSED_ARROW,
+    fillColor: color,
+    fillOpacity: 1,
+    strokeColor: 'black',
+    strokeWeight: 1,
+    scale: 8,
+  };
 }
 
 
