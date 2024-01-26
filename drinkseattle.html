@@ -281,7 +281,17 @@ function addMarker(map, latitude, longitude, neighborhood, barName, rating, desc
   marker.addListener('click', function () {
     infowindow.open(map, marker);
   });
-}   
+// Add event listener to the bar name in the marker's info window
+    google.maps.event.addListener(infowindow, 'domready', function () {
+      var barMarkerElement = document.querySelector('.bar-marker');
+      if (barMarkerElement) {
+        barMarkerElement.addEventListener('click', function () {
+          // You can add your desired action here
+          console.log("Bar marker name clicked!");
+        });
+      }
+    });
+  }   
   // Function to get marker icon based on rating
 
     function getMarkerIcon(rating) {
@@ -501,47 +511,33 @@ function extractNumericRating(starString) {
       return `${fullStars}${halfStar}`;
     }
  
+document.addEventListener('DOMContentLoaded', function () {
+    // Attach click event listeners to each bar name
+    var barNames = document.querySelectorAll('.bar-name');
+
+    barNames.forEach(function (barName) {
+      barName.addEventListener('click', function () {
+        // Find the corresponding marker based on the bar name
+        var barNameText = barName.innerText.split(' - ')[0];
+        var correspondingMarker = findMarkerByName(barNameText);
+
+        // Trigger the marker's click event
+        google.maps.event.trigger(correspondingMarker, 'click');
+      });
+    });
+  });
+
+  // Function to find a marker by name
+  function findMarkerByName(name) {
+    var markers = map.markers; // Assuming you store markers in the map object
+    // Loop through the markers array and find the one with the matching name
+    for (var i = 0; i < markers.length; i++) {
+      if (markers[i].getTitle() === name) {
+        return markers[i];
+      }
+    }
+    return null; // Return null if no matching marker is found
+  }
 
 
 </script>
-    
-<script>
-    // Your existing code
-
-    document.addEventListener('DOMContentLoaded', function () {
-      // Attach click event listeners to each bar name
-      var barNames = document.querySelectorAll('.bar-name');
-
-      barNames.forEach(function (barName) {
-        barName.addEventListener('click', function () {
-          // Find the corresponding marker based on the bar name
-          var barNameText = barName.innerText.split(' - ')[0];
-          var correspondingMarker = findMarkerByName(barNameText);
-
-          // Trigger the marker's click event
-          google.maps.event.trigger(correspondingMarker, 'click');
-        });
-      });
-    });
-
-    // Function to find a marker by name
-    function findMarkerByName(name) {
-      var markers = []; // Array to store all markers
-      // Add your markers to the array
-      addMarker(map, 47.61408822189972, -122.31873314450276, "Capitol Hill", "Cha Cha Lounge", "&#9733;&#9733;&#9733;&#189;", "Dark basement bar. Loud and stuffy on weekend nights.");
-      // Add more markers as needed
-      // ...
-
-      // Loop through the markers array and find the one with the matching name
-      for (var i = 0; i < markers.length; i++) {
-        if (markers[i].getTitle() === name) {
-          return markers[i];
-        }
-      }
-
-      return null; // Return null if no matching marker is found
-    }
-
-    // Your existing functions
-    // ...
-  </script>
