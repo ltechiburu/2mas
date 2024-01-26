@@ -314,6 +314,26 @@ function getMarkerIcon(rating) {
 
     barsContainer.appendChild(barElement);
   }
+    function sortBars() {
+  const sortOptions = document.getElementById("sortOptions");
+  const selectedOption = sortOptions.value;
+
+  if (selectedOption === "rating") {
+    bars.sort((a, b) => b.rating - a.rating);
+  } else if (selectedOption === "neighborhood") {
+    bars.sort((a, b) => a.neighborhood.localeCompare(b.neighborhood));
+  }
+
+  // Clear the current barsContainer content
+  const barsContainer = document.getElementById("barsContainer");
+  barsContainer.innerHTML = '';
+
+  // Display the sorted bars
+  bars.forEach(bar => {
+    displayBarInfo(bar);
+  });
+}
+
   </script>
 </body>
 
