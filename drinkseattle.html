@@ -1,28 +1,3 @@
-<!DOCTYPE html>
-<html>
-{% include head.html %}
-
-<body id="page-top" class="index">
-  {% include nav.html %}
-  {% include header.html %}
-  {% include portfolio_grid.html %}
-  {% include about.html %}
-
-  {% if site.contact == "static" %}
-  {% include contact_static.html %}
-  {% elsif site.contact == "disqus" %}
-  {% include contact_disqus.html %}
-  {% else %}
-  {% include contact.html %}
-  {% endif %}
-
-  {% include footer.html %}
-  {% include modals.html %}
-  {% include js.html %}
-</body>
-
-</html>
-
 After 7 years in Seattle, I have found myself enjoying happy hour beers, post-bike ride rewards, late night cocktails, and more, all around the city. Below is a guide with some of the most notable places I have frequented over the years.
 <br><br>
 <em>Map created with Google Cloud API technology. Coded in HTML and Javacript.</em>
