@@ -5,74 +5,75 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Website</title>
     <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-        }
+        /* Your existing styles... */
 
-        header {
+        .navbar {
+            margin-bottom: 0;
+            border: none;
+            border-radius: 0;
+            padding: 15px;
             background-color: #333;
             color: #fff;
-            text-align: center;
-            padding: 20px;
         }
 
-        nav ul {
-            list-style-type: none;
-            padding: 0;
+        .navbar a {
+            color: #fff !important;
         }
 
-        nav ul li {
-            display: inline;
-            margin-right: 20px;
+        .navbar-toggle {
+            background-color: #fff;
         }
 
-        nav a {
-            text-decoration: none;
-            color: #fff;
-            font-weight: bold;
+        .navbar-toggle .icon-bar {
+            background-color: #333;
         }
-
-        main {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
-        }
-
-        footer {
-    color: #fff;
-}
-
-footer h3 {
-    margin-bottom: 30px;
-}
-
-footer .footer-above {
-    padding-top: 50px;
-    background-color: #{{ site.color.secondary }};
-}
-
-footer .footer-col {
-    margin-bottom: 50px;
-}
-
-footer .footer-below {
-    padding: 25px 0;
-    background-color: #{{ site.color.secondary-dark }};
-}
     </style>
 </head>
 <body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#page-top">Your Website</a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#portfolio">Portfolio</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#about">About</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#contact">Contact</a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="{{ site.baseurl }}/drinkseattle.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Links <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{{ site.baseurl }}/drinkseattle.html">DrinkSeattle</a></li>
+                            <!-- Add more dropdown options as needed -->
+                        </ul>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="https://www.google.com/" target="_blank">Have a Question?</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
     <header>
         <h1>Your Website</h1>
-        <nav>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-        </nav>
+        <!-- Rest of your header content... -->
     </header>
 
     <main>
@@ -85,5 +86,7 @@ footer .footer-below {
     <footer>
         <p>&copy; 2024 Your Website</p>
     </footer>
+
+    <!-- Your existing scripts... -->
 </body>
 </html>
