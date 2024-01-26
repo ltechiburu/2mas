@@ -361,8 +361,6 @@ function getMarkerIcon(rating) {
 
     barsContainer.appendChild(barElement);
   }
-     // Additional neighborhoods count tracker
-  const neighborhoodsCount = {};
     
     // Function for sort ability
     function sortBars() {
@@ -388,6 +386,11 @@ function getMarkerIcon(rating) {
       const neighborhoodDropdown = document.getElementById("filterNeighborhoodDropdown");
       const uniqueNeighborhoods = [...new Set(bars.map(bar => bar.neighborhood))];
 
+      // Count reviews for each neighborhood
+  const neighborhoodsCount = uniqueNeighborhoods.reduce((count, neighborhood) => {
+    count[neighborhood] = bars.filter(bar => bar.neighborhood === neighborhood).length;
+    return count;
+  }, {});
       // Sort neighborhoods alphabetically
   uniqueNeighborhoods.sort();
       // Clear existing options
@@ -400,7 +403,8 @@ function getMarkerIcon(rating) {
         checkbox.type = "checkbox";
         checkbox.value = neighborhood;
         label.appendChild(checkbox);
-        label.appendChild(document.createTextNode(` ${neighborhood}`));
+        label.appendChild(document.createTextNode(` ${neighborhood} (${neighborhoodsCount[neighborhood]})`));
+      label.style.color = '#4d1c31'; // Maroon text color
 
         neighborhoodDropdown.appendChild(label);
       });
