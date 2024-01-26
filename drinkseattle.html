@@ -286,30 +286,37 @@ let filteredBars = [];
     zoom: 12,
   });
 
+  // Keep track of markers and infowindows
+  const markers = [];
+  const infowindows = [];
+
   // Add markers and info windows
   bars.forEach(bar => {
     const marker = new google.maps.Marker({
       position: { lat: bar.lat, lng: bar.lng },
       map: map,
       title: bar.name,
-      icon: getMarkerIcon(bar.rating), // Set the marker icon based on rating
+      icon: getMarkerIcon(bar.rating),
     });
 
     const infowindow = new google.maps.InfoWindow({
       content: `<div id="${bar.name.replace(/\s+/g, '')}" style="font-size:16px;"><strong class="bar-marker">${bar.name}</strong> - <em>${bar.neighborhood}</em></div>` +
-      `<div style="font-size:18px;">Rating: ${getRatingStars(bar.rating)}</div>` +
-      `<div style="font-size:14px;">${bar.description}</div>`
+        `<div style="font-size:18px;">Rating: ${getRatingStars(bar.rating)}</div>` +
+        `<div style="font-size:14px;">${bar.description}</div>`
     });
 
     marker.addListener('click', function () {
       infowindow.open(map, marker);
     });
 
-    // Add an event listener to scroll to the map container when the anchor is clicked
-    infowindow.addListener('domready', function () {
-      document.getElementById(bar.name.replace(/\s+/g, '')).addEventListener('click', function () {
-        document.getElementById("map").scrollIntoView({ behavior: 'smooth' });
-      });
+    markers.push(marker);
+    infowindows.push(infowindow);
+
+    // Add an event listener to scroll to the map container and open the info window when the anchor is clicked
+    document.getElementById(bar.name.replace(/\s+/g, '')).addEventListener('click', function () {
+      map.panTo(new google.maps.LatLng(bar.lat, bar.lng));
+      map.setZoom(16); // Adjust the zoom level as needed
+      infowindow.open(map, marker);
     });
   });
 
@@ -318,6 +325,7 @@ let filteredBars = [];
     displayBarInfo(bar);
   });
 }
+
 
 
 // Helper function to get marker icon based on rating
