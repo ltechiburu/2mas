@@ -162,31 +162,37 @@ margin: auto;
   <div id="map"></div>
   
   <!-- Bar Information Container -->
- <div class="container mt-5">
-  <!-- Toolbar for sorting and future filtering options -->
-  <div class="toolbar" style="background-color: #4d1c31; padding: 10px; margin-bottom: 10px;">
-    <label for="sortOptions" style="color: white;">Sort By:</label>
-    <select id="sortOptions" onchange="sortBars()" style="color: black; background-color: #ffffff;">
-      <option value="rating">Rating</option>
-      <option value="neighborhood">Neighborhood</option>
-    </select>
-       <!-- Filter by Neighborhood tab -->
-      <div class="filter-tab" onmouseover="showDropdown()" onmouseout="hideDropdown()">
-        <span style="cursor: pointer; color: white;">Filter by Neighborhood ▼</span>
-        <!-- Hoverable dropdown for Filter by Neighborhood -->
-    <div class="neighborhood-dropdown">
-        <!-- Dynamically populate neighborhood options here -->
-        <!-- For now, let's add a few sample neighborhoods -->
-        <label><input type="checkbox" value="Neighborhood1"> Neighborhood 1</label>
-        <label><input type="checkbox" value="Neighborhood2"> Neighborhood 2</label>
-        <label><input type="checkbox" value="Neighborhood3"> Neighborhood 3</label>
+  <div class="container mt-5">
+    <!-- Toolbar for sorting and future filtering options -->
+    <div class="toolbar" style="background-color: #4d1c31; padding: 10px; margin-bottom: 10px;">
+      <div class="dropdown-container">
+        <!-- Filter by Neighborhood tab -->
+        <div class="filter-tab" onmouseover="showDropdown()" onmouseout="hideDropdown()">
+          <span style="cursor: pointer; color: white;">Filter by Neighborhood ▼</span>
+          <!-- Hoverable dropdown for Filter by Neighborhood -->
+          <div class="neighborhood-dropdown">
+            <!-- Dynamically populate neighborhood options here -->
+            <!-- For now, let's add a few sample neighborhoods -->
+            <label><input type="checkbox" value="Neighborhood1"> Neighborhood 1</label>
+            <label><input type="checkbox" value="Neighborhood2"> Neighborhood 2</label>
+            <label><input type="checkbox" value="Neighborhood3"> Neighborhood 3</label>
+          </div>
+        </div>
       </div>
+
+      <div class="dropdown-container">
+        <label for="sortOptions" style="color: white;">Sort By:</label>
+        <select id="sortOptions" onchange="sortBars()" style="color: black; background-color: #ffffff;">
+          <option value="rating">Rating</option>
+          <option value="neighborhood">Neighborhood</option>
+        </select>
+      </div>
+    </div>
+
+    <div id="barsContainer" style="margin-top: 20px;">
+      <!-- Bar reviews will be displayed here -->
+    </div>
   </div>
-  </div>
-  <div id="barsContainer" style="margin-top: 20px;">
-    <!-- Bar reviews will be displayed here -->
-  </div>
- </div>
 
   <!-- JavaScript for Google Maps API -->
   <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDS9EmKPBq8kLzNHkv1QE4ERosIpxn0SpQ&callback=initMap"
