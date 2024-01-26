@@ -231,7 +231,6 @@ margin: auto;
     { name: "Fremont Brewing Beer Garden", lat: 47.649078402927096, lng: -122.34445794953707, neighborhood: "Fremont", rating: 4.5, description: "The premier location to enjoy a beer with company on a sunny day. Huge patio, cute dogs, delicious brews." },
     { name: "McGilvra's Bar & Restaurant", lat: 47.63645977516459, lng: -122.27728768120579, neighborhood: "Madison Valley", rating: 3, description: "Nearest locale to Madison Beach Park. Irish Pub with a nice small patio for enjoying a Guiness after a day at the beach" },
     { name: "Zoo Tavern", lat: 47.639875468690406, lng: -122.32607278478677, neighborhood: "Eastlake", rating: 3.5, description: "If you ever find yourself stranded around Eastlake, this is the place to go. Great service, divey atmosphere. Pinball and Skeeball in the back. CASH ONLY" },
-    { name: "Lockspot Cafe", lat: 47.66783407605266, lng: -122.39588262069796, neighborhood: "Ballard", rating: 3, description: "Conveniently located right off the Burke Gilman, by the entrance to the Ballard Locks. Nice place for a pick-me-up when on a bike loop. Solid Salmon & Clam Chowder" },
     { name: "Rooftop Brewing Company", lat: 47.65573606123333, lng: -122.37321709903422, neighborhood: "Interbay", rating: 4, description: "After countless times passing their signs on the Ship Canal Trail, stopped by for a refreshing Hazy IPA. Great patio with food trucks." },
     { name: "Duchess Tavern", lat: 47.668354352668494, lng: -122.29611100669129, neighborhood: "UDistrict", rating: 4.5, description: "Hands down my favorite college bar. Husky memorabilia set the mood in this divey tavern. Plenty of indoor seating, with a covered patio in the back. $7.50 Miller Light pitchers are the crown jewel" },
     { name: "Agua Verde Cafe", lat: 47.65161823886362, lng: -122.31432914203118, neighborhood: "UDistrict", rating: 4, description: "Mexican Restaurant with an unbeatable location. Enjoy a margarita while watching the boats pass through Montlake" },
@@ -394,8 +393,12 @@ function getMarkerIcon(rating) {
   uniqueNeighborhoods.sort();
       // Clear existing options
       neighborhoodDropdown.innerHTML = '';
-
-
+// Add Apply button
+  const applyButton = document.createElement("button");
+  applyButton.innerText = "Apply";
+  // For now, clicking Apply will do nothing
+  applyButton.addEventListener("click", () => {});
+  neighborhoodDropdown.appendChild(applyButton);
       
       // Populate neighborhood options
       uniqueNeighborhoods.forEach(neighborhood => {
