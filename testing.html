@@ -293,7 +293,7 @@ function getMarkerIcon(rating) {
     const barElement = document.createElement("div");
     barElement.classList.add("bar-info");
 
-    barElement.innerHTML = `<div class="bar-name">${bar.name} - <span class="neighborhood">${bar.neighborhood}</span></div>` +
+    barElement.innerHTML = `<div class="bar-name"><strong>${bar.name}</strong> - <span class="neighborhood"><em>${bar.neighborhood}</em></span></div>` +
       `<div>${getRatingStars(bar.rating)}</div>` +
       `<div class="description">${bar.description}</div>` +
       `<hr>`;
