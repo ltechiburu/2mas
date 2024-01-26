@@ -359,6 +359,9 @@ function getMarkerIcon(rating) {
 
     barsContainer.appendChild(barElement);
   }
+     // Additional neighborhoods count tracker
+  const neighborhoodsCount = {};
+    
     // Function for sort ability
     function sortBars() {
     const sortOptions = document.getElementById("sortOptions");
@@ -369,9 +372,15 @@ function getMarkerIcon(rating) {
     } else if (selectedOption === "neighborhood") {
       bars.sort((a, b) => a.neighborhood.localeCompare(b.neighborhood));
     }
+       // Clear the current barsContainer content
+    const barsContainer = document.getElementById("barsContainer");
+    barsContainer.innerHTML = '';
+       // Display the sorted bars
+      bars.forEach(bar => {
+   displayBarInfo(bar);
+});
     }
-     // Additional neighborhoods count tracker
-  const neighborhoodsCount = {};
+    
 // Function to generate neighborhood options
     function generateNeighborhoodOptions() {
       const neighborhoodDropdown = document.getElementById("filterNeighborhoodDropdown");
@@ -402,14 +411,8 @@ function toggleDropdown() {
   dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
 }
 
-      // Clear the current barsContainer content
-    const barsContainer = document.getElementById("barsContainer");
-    barsContainer.innerHTML = '';
+   
 
-    // Display the sorted bars
-      bars.forEach(bar => {
-   displayBarInfo(bar);
-});
 
     
   </script>
