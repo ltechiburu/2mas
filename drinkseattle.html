@@ -188,12 +188,9 @@ margin: auto;
         <div class="filter-tab" onmouseover="showDropdown()" onmouseout="hideDropdown()">
           <span style="cursor: pointer; color: white;">Filter by Neighborhood ▼</span>
           <!-- Hoverable dropdown for Filter by Neighborhood -->
-          <div class="neighborhood-dropdown">
+          <div class="neighborhood-dropdown" id="filterNeighborhoodDropdown">
             <!-- Dynamically populate neighborhood options here -->
-            <!-- For now, let's add a few sample neighborhoods -->
-            <label><input type="checkbox" value="Neighborhood1"> Neighborhood 1</label>
-            <label><input type="checkbox" value="Neighborhood2"> Neighborhood 2</label>
-            <label><input type="checkbox" value="Neighborhood3"> Neighborhood 3</label>
+          
           </div>
         </div>
       </div>
@@ -378,6 +375,29 @@ function getMarkerIcon(rating) {
 
      // Additional neighborhoods count tracker
   const neighborhoodsCount = {};
+// Function to generate neighborhood options
+    function generateNeighborhoodOptions() {
+      const neighborhoodDropdown = document.getElementById("filterNeighborhoodDropdown");
+      const uniqueNeighborhoods = [...new Set(bars.map(bar => bar.neighborhood))];
+
+      // Clear existing options
+      neighborhoodDropdown.innerHTML = '';
+
+      // Populate neighborhood options
+      uniqueNeighborhoods.forEach(neighborhood => {
+        const label = document.createElement("label");
+        const checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+        checkbox.value = neighborhood;
+        label.appendChild(checkbox);
+        label.appendChild(document.createTextNode(` ${neighborhood}`));
+
+        neighborhoodDropdown.appendChild(label);
+      });
+    }
+
+    // Call the function to generate neighborhood options when the page loads
+    generateNeighborhoodOptions();
 
       
       // Clear the current barsContainer content
