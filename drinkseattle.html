@@ -280,15 +280,11 @@ margin: auto;
 let activeFilter = false;
 let filteredBars = [];
 
-  function initMap() {
+ function initMap() {
   const map = new google.maps.Map(document.getElementById('map'), {
     center: { lat: 47.6062, lng: -122.3321 }, // Seattle coordinates
     zoom: 12,
   });
-
-  // Keep track of markers and infowindows
-  const markers = [];
-  const infowindows = [];
 
   // Add markers and info windows
   bars.forEach(bar => {
@@ -296,26 +292,15 @@ let filteredBars = [];
       position: { lat: bar.lat, lng: bar.lng },
       map: map,
       title: bar.name,
-      icon: getMarkerIcon(bar.rating),
+      icon: getMarkerIcon(bar.rating), // Set the marker icon based on rating
     });
-
     const infowindow = new google.maps.InfoWindow({
-      content: `<div id="${bar.name.replace(/\s+/g, '')}" style="font-size:16px;"><strong class="bar-marker">${bar.name}</strong> - <em>${bar.neighborhood}</em></div>` +
+      content: `<div style="font-size:16px;"><strong class="bar-marker">${bar.name}</strong> - <em>${bar.neighborhood}</em></div>` +
         `<div style="font-size:18px;">Rating: ${getRatingStars(bar.rating)}</div>` +
         `<div style="font-size:14px;">${bar.description}</div>`
     });
 
     marker.addListener('click', function () {
-      infowindow.open(map, marker);
-    });
-
-    markers.push(marker);
-    infowindows.push(infowindow);
-
-    // Add an event listener to scroll to the map container and open the info window when the anchor is clicked
-    document.getElementById(bar.name.replace(/\s+/g, '')).addEventListener('click', function () {
-      map.panTo(new google.maps.LatLng(bar.lat, bar.lng));
-      map.setZoom(16); // Adjust the zoom level as needed
       infowindow.open(map, marker);
     });
   });
@@ -325,8 +310,6 @@ let filteredBars = [];
     displayBarInfo(bar);
   });
 }
-
-
 
 // Helper function to get marker icon based on rating
 function getMarkerIcon(rating) {
@@ -370,10 +353,10 @@ function getMarkerIcon(rating) {
     const barElement = document.createElement("div");
     barElement.classList.add("bar-info");
     
-    barElement.innerHTML = `<a href="#${bar.name.replace(/\s+/g, '')}"><div class="bar-name"><strong>${bar.name}</strong> - <span class="neighborhood"><em>${bar.neighborhood}</em></span></div></a>` +
-    `<div>${getRatingStars(bar.rating)}</div>` +
-    `<div class="description">${bar.description}</div>` +
-    `<hr>`;
+    barElement.innerHTML = `<div class="bar-name"><strong>${bar.name}</strong> - <span class="neighborhood"><em>${bar.neighborhood}</em></span></div>` +
+      `<div>${getRatingStars(bar.rating)}</div>` +
+      `<div class="description">${bar.description}</div>` +
+      `<hr>`;
 
     barsContainer.appendChild(barElement);
   }
