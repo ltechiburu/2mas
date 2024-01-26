@@ -132,9 +132,92 @@
   <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDS9EmKPBq8kLzNHkv1QE4ERosIpxn0SpQ&callback=initMap"
     onerror="handleError()"></script>
 
-  <!-- JavaScript for Bar Information -->
+  <!-- Map Container -->
+  <div id="map"></div>
+
+  <!-- Bar Information Container -->
+  <div id="barsContainer" class="container mt-5">
+    <!-- Toolbar for sorting and future filtering options -->
+    <div class="toolbar">
+      <label for="sortOptions">Sort By:</label>
+      <select id="sortOptions" onchange="sortBars()">
+        <option value="rating">Rating</option>
+        <option value="neighborhood">Neighborhood</option>
+      </select>
+    </div>
+
+    <!-- Add the style directly within the body section -->
+    <style>
+      #sortOptions option[value="rating"],
+      #sortOptions option[value="neighborhood"] {
+        color: black; /* Change this to the color you desire */
+      }
+    </style>
+  </div>
+
+  <!-- JavaScript for Google Maps API -->
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap"
+    onerror="handleError()"></script>
+
   <script>
-    // ... (Your existing JavaScript code for bar information)
+    // Bar data
+    const bars = [
+      { name: "Lockspot Cafe", lat: 47.61408822189972, lng: -122.31873314450276, neighborhood: "Ballard", rating: 3, description: "Conveniently located right oUSff the Burke Gilman, by the entrance to the Ballard Locks. Nice place for a pick-me-up when on a bike loop. Solid Salmon & Clam Chowder" },
+      // Add more bar data as needed
+    ];
+
+    function initMap() {
+      const map = new google.maps.Map(document.getElementById('map'), {
+        center: { lat: 47.6062, lng: -122.3321 }, // Seattle coordinates
+        zoom: 12,
+      });
+
+      // Add markers and info windows
+      bars.forEach(bar => {
+        const marker = new google.maps.Marker({
+          position: { lat: bar.lat, lng: bar.lng },
+          map: map,
+          title: bar.name,
+          icon: getMarkerIcon(bar.rating)
+        });
+
+        const infowindow = new google.maps.InfoWindow({
+          content: `<div style="font-size:16px;"><strong class="bar-marker">${bar.name}</strong> - <em>${bar.neighborhood}</em></div>` +
+            `<div style="font-size:18px;">Rating: ${getRatingStars(bar.rating)}</div>` +
+            `<div style="font-size:14px;">${bar.description}</div>`
+        });
+
+        marker.addListener('click', function () {
+          infowindow.open(map, marker);
+        });
+
+        // Display bar information below the map
+        displayBarInfo(bar);
+      });
+    }
+
+    function displayBarInfo(bar) {
+      const barsContainer = document.getElementById("barsContainer");
+
+      const barElement = document.createElement("div");
+      barElement.classList.add("bar-info");
+
+      barElement.innerHTML = `<div class="bar-name">${bar.name} - <span class="neighborhood">${bar.neighborhood}</span></div>` +
+        `<div>${getRatingStars(bar.rating)}</div>` +
+        `<div class="description">${bar.description}</div>` +
+        `<hr>`;
+
+      barsContainer.appendChild(barElement);
+    }
+
+    // Helper function to get star ratings
+    function getRatingStars(rating) {
+      const fullStars = "★".repeat(Math.floor(rating));
+      const halfStar = (rating % 1 !== 0) ? "½" : "";
+      return `${fullStars}${halfStar}`;
+    }
+
+    // ... (Your existing JavaScript code for sorting and additional functionalities)
   </script>
 </body>
 
