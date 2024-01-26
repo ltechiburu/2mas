@@ -479,7 +479,7 @@ function toggleDropdown() {
 }
 
    // Add a scroll event listener to toggle the visibility of the dynamic text
-    document.addEventListener('scroll', function () {
+   document.addEventListener('scroll', function () {
   // Get the height of the maroon header
   var maroonHeaderHeight = document.querySelector('header').offsetHeight;
   // Get the scroll position
@@ -487,15 +487,14 @@ function toggleDropdown() {
 
   // Check if the scroll position is greater than or equal to the maroon header height
   if (scrollPosition >= maroonHeaderHeight) {
-    // Show the dynamic text
-    document.querySelector('header .dynamic-text').style.display = 'block';
+    // Show the dynamic text on the navbar
+    document.querySelector('.navbar-brand .dynamic-text').style.display = 'block';
   } else {
-    // Hide the dynamic text
-    document.querySelector('header .dynamic-text').style.display = 'none';
+    // Hide the dynamic text on the navbar
+    document.querySelector('.navbar-brand .dynamic-text').style.display = 'none';
   }
 });
-
-    
+   
   </script>
 </body>
 
