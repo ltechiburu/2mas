@@ -94,6 +94,8 @@
       background-color: #fff;
       box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
       z-index: 1000;
+      margin-top: 10px; /* Adjust the margin to position the dropdown below the tab */
+
     }
 
     .toolbar:hover .neighborhood-dropdown {
@@ -168,7 +170,10 @@ margin: auto;
       <option value="rating">Rating</option>
       <option value="neighborhood">Neighborhood</option>
     </select>
-      <!-- Hoverable dropdown for Filter by Neighborhood -->
+       <!-- Filter by Neighborhood tab -->
+      <div class="filter-tab" onmouseover="showDropdown()" onmouseout="hideDropdown()">
+        <span style="cursor: pointer; color: white;">Filter by Neighborhood ▼</span>
+        <!-- Hoverable dropdown for Filter by Neighborhood -->
     <div class="neighborhood-dropdown">
         <!-- Dynamically populate neighborhood options here -->
         <!-- For now, let's add a few sample neighborhoods -->
