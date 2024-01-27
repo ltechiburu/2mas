@@ -1,27 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<!DOCTYPE html>
-<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Seiya Suzuki Case Study</title>
-  <!-- Add your CSS links and other head elements here -->
+  <title>Seiya Suzuki - Baseball Star</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js">
+
+  <!-- Add your custom CSS styles from your existing page -->
   <style>
     body {
-      font-family: 'Arial', sans-serif; /* Change font-family as needed */
-      background-color: #f8f9fa; /* Adjust background color as needed */
-      color: #333; /* Adjust text color as needed */
+      overflow-x: hidden;
+    }
+
+    .navbar {
+      text-transform: uppercase;
+      font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-weight: 700;
+    }
+
+    .navbar a:focus {
+      outline: 0;
+    }
+
+    .navbar .navbar-nav {
+      letter-spacing: 1px;
+    }
+
+    .navbar .navbar-nav li a:focus {
+      outline: 0;
+    }
+
+    .navbar-default,
+    .navbar-inverse {
+      border: 0;
+    }
+
+    .navbar .dynamic-text {
+      color: #800000;
+      font-size: 1.5em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .navbar .dynamic-text {
+      display: none;
     }
 
     header {
       position: relative;
-      background-color: #4d1c31; /* Maroon color */
+      background-color: #4d1c31;
       text-align: center;
-      color: #fff; /* White text color, adjust as needed */
-      padding-top: 100px;
-      padding-bottom: 50px;
+      color: #fff;
     }
 
     header .container {
@@ -29,77 +66,192 @@
       padding-bottom: 50px;
     }
 
+    header .map-credit {
+      font-style: italic;
+      font-size: 0.8em;
+    }
+
     @media(min-width:768px) {
       header .container {
         padding-top: 200px;
         padding-bottom: 100px;
       }
+
+      .navbar-fixed-top {
+        padding: 25px 0;
+        -webkit-transition: padding .3s;
+        -moz-transition: padding .3s;
+        transition: padding .3s;
+      }
+
+      .navbar-fixed-top .navbar-brand {
+        font-size: 2em;
+        -webkit-transition: all .3s;
+        -moz-transition: all .3s;
+        transition: all .3s;
+      }
+
+      .navbar-fixed-top.navbar-shrink {
+        padding: 10px 0;
+      }
+
+      .navbar-fixed-top.navbar-shrink .navbar-brand {
+        font-size: 1.5em;
+      }
     }
 
-    .intro-text {
-      font-family: 'Arial', sans-serif; /* Change font-family as needed */
-      font-size: 1.5em; /* Adjust the font size as needed */
-      font-weight: 400;
-      text-align: center;
-      margin-bottom: 20px;
+    header .intro-text .page-title {
+      font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 4.5em;
+      font-weight: 700;
     }
 
-    .separator {
-      clear: both;
-      text-align: center;
-      margin: 20px 0;
+    .toolbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
 
-    p {
-      text-align: justify;
-      margin-bottom: 20px;
-    }
-
-    h2 {
-      text-align: left;
-      margin-bottom: 10px;
-    }
-
-    .tableauPlaceholder {
+    .dropdown-container {
       position: relative;
     }
 
-    .tableauViz {
+    .neighborhood-dropdown {
       display: none;
+      position: absolute;
+      background-color: white;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+      width: 200px;
+      border-radius: 5px;
+      margin-top: 5px;
     }
 
-    .tableauPlaceholder:hover .tableauViz {
+    .neighborhood-dropdown label {
+      display: block;
+      padding: 8px;
+      color: #4d1c31;
+      cursor: pointer;
+    }
+
+    .neighborhood-dropdown label:hover {
+      background-color: #4d1c31;
+      color: white;
+    }
+
+    .dropdown-container:hover .neighborhood-dropdown {
       display: block;
     }
 
-    /* Add more styles as needed */
+    /* Add any custom styles for your map container if needed */
+    #map {
+      background: #000080;
+      border: 3px solid #4d1c31;
+      border-radius: 25px;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+      height: 400px;
+      width: 80%;
+      margin: auto;
+      transform-origin: center center;
+      transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
+    }
 
+    #map:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 40px rgba(0, 0, 0, 0.7);
+    }
   </style>
 </head>
-<body>
+
+<body id="page-top">
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="https://ltechiburu.github.io/2mas/">
+        Tomas Echiburu
+        <!-- Dynamic text element within the navbar -->
+        <span class="dynamic-text" id="navbarDynamicText">DRINKSEATTLE</span>
+      </a>
+
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+        aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <!-- Add your navigation links here if needed -->
+        </ul>
+      </div>
+    </div>
+  </nav>
 
   <!-- Header -->
   <header>
     <div class="container">
       <div class="intro-text">
-        <b><i>A case study on the transition from the Japanese baseball league to the Majors, and what we can expect from Seiya Suzuki.</i></b>
+        <div class="intro-heading text-uppercase page-title">DrinkSeattle</div>
+        <div class="intro-subheading">
+          After 7 years in Seattle, I have found myself enjoying happy hour beers, post-bike ride rewards, late night
+          cocktails and more, all around the city. Below is a guide with some of the most notable places I have
+          frequented over the years.
+          <br> <br> Green pins are places I would recommend to a friend, while red pins are places I think you should
+          avoid. A yellow pin means decide for yourself
+          <em class="map-credit">Map created with Google Maps API technology. Markers, reviews, and page formatting coded
+            in HTML, JavaScript, CSS.</em>
+        </div>
       </div>
-      <!-- Add image if needed -->
     </div>
   </header>
 
-  <!-- Content -->
-  <div class="container">
-    <div class="separator"></div>
+  <!-- Add the map container and toolbar from your existing page -->
+  <style>
+    /* Add any custom styles for your map container if needed */
+    #map {
+      background: #000080;
+      border: 3px solid #4d1c31;
+      border-radius: 25px;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+      height: 400px;
+      width: 80%;
+      margin: auto;
+      transform-origin: center center;
+      transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
+    }
 
-    <p>Japanese baseball star Seiya Suzuki has announced that after 9 seasons in the NPB, the top flight of baseball in Japan, he will be taking his talents overseas to the Major Leagues. Given his high production levels in Japan, he has garnered the attention of many MLB teams.</p>
+    #map:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 40px rgba(0, 0, 0, 0.7);
+    }
+  </style>
+  <!-- Map Container -->
+  <br>
+  <div id="map"></div>
 
-    <!-- Continue with the rest of your content -->
-
+  <!-- Bar Information Container -->
+  <div class="container mt-5">
+    <!-- Toolbar for sorting and future filtering options -->
+    <div class="toolbar" style="background-color: #4d1c31; padding: 10px; margin-bottom: 10px;">
+      <!-- Filter by Neighborhood tab -->
+      <div class="filter-tab" onclick="toggleDropdown()">
+        <span style="cursor: pointer; color: white;">Filter by Neighborhood ▼</span>
+        <!-- Hoverable dropdown for Filter by Neighborhood -->
+        <div class="neighborhood-dropdown" id="filterNeighborhoodDropdown">
+          <!-- Dynamically populate neighborhood options here -->
+        </div>
+      </div>
+      <div class="dropdown-container">
+        <label for="sortOptions" style="color: white;">Sort By:</label>
+        <select id="sortOptions" onchange="sortBars()" style="color: black; background-color: #ffffff;">
+          <option value="" disabled selected>-- Select One --</option>
+          <option value="rating">Rating</option>
+          <option value="neighborhood">Neighborhood</option>
+        </select>
+      </div>
+    </div>
   </div>
 
-  <!-- Footer or additional sections can be added here -->
+  <!-- Include JavaScript and jQuery scripts as needed -->
 
 </body>
-</html>
 
+</html>
