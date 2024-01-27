@@ -4,12 +4,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Seiya Suzuki - Baseball Star</title>
+  <title>Seiya Suzuki - A Case Study</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js">
 
-  <!-- Add your custom CSS styles from your existing page -->
   <style>
     body {
       overflow-x: hidden;
@@ -66,7 +65,7 @@
       padding-bottom: 50px;
     }
 
-    header .map-credit {
+    header .credit {
       font-style: italic;
       font-size: 0.8em;
     }
@@ -116,50 +115,7 @@
       position: relative;
     }
 
-    .neighborhood-dropdown {
-      display: none;
-      position: absolute;
-      background-color: white;
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-      z-index: 1000;
-      width: 200px;
-      border-radius: 5px;
-      margin-top: 5px;
-    }
 
-    .neighborhood-dropdown label {
-      display: block;
-      padding: 8px;
-      color: #4d1c31;
-      cursor: pointer;
-    }
-
-    .neighborhood-dropdown label:hover {
-      background-color: #4d1c31;
-      color: white;
-    }
-
-    .dropdown-container:hover .neighborhood-dropdown {
-      display: block;
-    }
-
-    /* Add any custom styles for your map container if needed */
-    #map {
-      background: #000080;
-      border: 3px solid #4d1c31;
-      border-radius: 25px;
-      box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
-      height: 400px;
-      width: 80%;
-      margin: auto;
-      transform-origin: center center;
-      transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
-    }
-
-    #map:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 40px rgba(0, 0, 0, 0.7);
-    }
   </style>
 </head>
 
@@ -170,7 +126,7 @@
       <a class="navbar-brand" href="https://ltechiburu.github.io/2mas/">
         Tomas Echiburu
         <!-- Dynamic text element within the navbar -->
-        <span class="dynamic-text" id="navbarDynamicText">DRINKSEATTLE</span>
+        <span class="dynamic-text" id="navbarDynamicText">NPB2MLB</span>
       </a>
 
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
@@ -189,68 +145,14 @@
   <header>
     <div class="container">
       <div class="intro-text">
-        <div class="intro-heading text-uppercase page-title">DrinkSeattle</div>
+        <div class="intro-heading text-uppercase page-title">NPB2MLB</div>
         <div class="intro-subheading">
-          After 7 years in Seattle, I have found myself enjoying happy hour beers, post-bike ride rewards, late night
-          cocktails and more, all around the city. Below is a guide with some of the most notable places I have
-          frequented over the years.
-          <br> <br> Green pins are places I would recommend to a friend, while red pins are places I think you should
-          avoid. A yellow pin means decide for yourself
-          <em class="map-credit">Map created with Google Maps API technology. Markers, reviews, and page formatting coded
-            in HTML, JavaScript, CSS.</em>
+          A case study on the transition from the Japanese baseball league to the Majors, and what we can expect from Seiya Suzuki
+          <em class="credit">Place credits here.</em>
         </div>
       </div>
     </div>
-  </header>
-
-  <!-- Add the map container and toolbar from your existing page -->
-  <style>
-    /* Add any custom styles for your map container if needed */
-    #map {
-      background: #000080;
-      border: 3px solid #4d1c31;
-      border-radius: 25px;
-      box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
-      height: 400px;
-      width: 80%;
-      margin: auto;
-      transform-origin: center center;
-      transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
-    }
-
-    #map:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 40px rgba(0, 0, 0, 0.7);
-    }
-  </style>
-  <!-- Map Container -->
-  <br>
-  <div id="map"></div>
-
-  <!-- Bar Information Container -->
-  <div class="container mt-5">
-    <!-- Toolbar for sorting and future filtering options -->
-    <div class="toolbar" style="background-color: #4d1c31; padding: 10px; margin-bottom: 10px;">
-      <!-- Filter by Neighborhood tab -->
-      <div class="filter-tab" onclick="toggleDropdown()">
-        <span style="cursor: pointer; color: white;">Filter by Neighborhood ▼</span>
-        <!-- Hoverable dropdown for Filter by Neighborhood -->
-        <div class="neighborhood-dropdown" id="filterNeighborhoodDropdown">
-          <!-- Dynamically populate neighborhood options here -->
-        </div>
-      </div>
-      <div class="dropdown-container">
-        <label for="sortOptions" style="color: white;">Sort By:</label>
-        <select id="sortOptions" onchange="sortBars()" style="color: black; background-color: #ffffff;">
-          <option value="" disabled selected>-- Select One --</option>
-          <option value="rating">Rating</option>
-          <option value="neighborhood">Neighborhood</option>
-        </select>
-      </div>
-    </div>
-  </div>
-
-  <!-- Include JavaScript and jQuery scripts as needed -->
+  </header>  
 
 </body>
 
