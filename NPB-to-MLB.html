@@ -200,11 +200,12 @@
   var divElement = document.getElementById('viz1706328544886');
   var vizElement = divElement.getElementsByTagName('object')[0];
   vizElement.style.width = '100%';
-  vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px';
+  vizElement.style.height = (divElement.offsetWidth * 0.9) + 'px';  // Adjust the multiplier as needed
   var scriptElement = document.createElement('script');
   scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
   vizElement.parentNode.insertBefore(scriptElement, vizElement);
 </script>
+
 
   <p>
     The box and whisker plot above shows how players' stats were affected during their transition to the MLB. By hovering over the plot, you can see how an individual stat was affected for each player. This gives us a framework for projecting Seiya Suzuki's numbers for the 2022 season.
