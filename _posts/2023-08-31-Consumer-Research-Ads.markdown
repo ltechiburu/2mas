@@ -7,5 +7,5 @@ alt: cake cartoon
 project-date: 2022 - 2023
 client: Starbucks
 category: Social Media Marketing, Content Creation
-description:"<a href=\"https://github.com/ltechiburu/2mas/blob/master/CRAds.html" target=\"_blank\" style=\"color: blue;\"><b><i>A collection of media created to recruit consumers for Starbucks consumer research studies.</i></b></a>"
+description: "<a href=\"https://github.com/ltechiburu/2mas/blob/master/CRAds.html" target=\"_blank\" style=\"color: blue;\"><b><i>A collection of media created to recruit consumers for Starbucks consumer research studies.</i></b></a>"
 ---
