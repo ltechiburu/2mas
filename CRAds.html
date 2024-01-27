@@ -44,10 +44,12 @@
             box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
         }
          .tiktok-container {
-            display: flex;
+            display: grid;
             flex-wrap: wrap;
             gap: 1px;
             justify-content: center;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+
         }
 
         .tiktok-embed {
@@ -59,7 +61,7 @@
 
         }
          .larger-1png {
-            transform: scale(1.5);
+            transform: scale(1);
     </style>
 </head>
 <body>
