@@ -1,23 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Consumer Research Ads</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js">
+
     <style>
         body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
+            overflow-x: hidden;
+            margin-left: 80px;
+            margin-right: 80px;
+        }
+
+        .navbar {
+            text-transform: uppercase;
+            font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-weight: 700;
+        }
+
+        .navbar a:focus {
+            outline: 0;
+        }
+
+        .navbar .navbar-nav {
+            letter-spacing: 1px;
+        }
+
+        .navbar .navbar-nav li a:focus {
+            outline: 0;
+        }
+
+        .navbar-default,
+        .navbar-inverse {
+            border: 0;
+        }
+
+        .navbar .dynamic-text {
+            color: #800000;
+            font-size: 1.5em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .navbar .dynamic-text {
+            display: none;
         }
 
         header {
+            position: relative;
             background-color: #4d1c31;
-            color: #fff;
-            padding: 20px;
             text-align: center;
+            color: #fff;
         }
+
+        header .container {
+            padding-top: 100px;
+            padding-bottom: 50px;
+        }
+
+        header .credit {
+            font-style: italic;
+            font-size: 0.6em;
+            position: absolute;
+            bottom: 10px;
+            left: 65%;
+            transform: translateX(-50%);
+        }
+
+        @media(min-width:768px) {
+            header .container {
+                padding-top: 200px;
+                padding-bottom: 100px;
+            }
+
+            .navbar-fixed-top {
+                padding: 25px 0;
+                -webkit-transition: padding .3s;
+                -moz-transition: padding .3s;
+                transition: padding .3s;
+            }
+
+            .navbar-fixed-top .navbar-brand {
+                font-size: 2em;
+                -webkit-transition: all .3s;
+                -moz-transition: all .3s;
+                transition: all .3s;
+            }
+
+            .navbar-fixed-top.navbar-shrink {
+                padding: 10px 0;
+            }
+
+            .navbar-fixed-top.navbar-shrink .navbar-brand {
+                font-size: 1.5em;
+            }
+        }
+
+        header .intro-text .page-title {
+            font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 4.5em;
+            font-weight: 700;
+        }
+
+        .intro-subheading img {
+            float: left;
+            margin-right: 20px;
+            max-width: 300px;
+        }
+
 
         section {
             max-width: 800px;
@@ -63,14 +162,39 @@
         }
     </style>
 </head>
-<body>
+<body id="page-top">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="https://ltechiburu.github.io/2mas/">
+                Tomas Echiburu
+                <span class="dynamic-text" id="navbarDynamicText">Consumer Research Ads</span>
+            </a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <!-- Add your navigation links here if needed -->
+                </ul>
+            </div>
+        </div>
+    </nav>
+
 
     <header>
-        <h1>Consumer Research Ads</h1>
-        <p>A collection of media created to recruit consumers for Starbucks consumer research studies. These were posted on various social media platforms, flyers around the city, and public transit stations.</p>
-        <br> Using this content, I was able to leverage a limited budget to launch recruitment campaigns that saw an increase in our consumer database of over 220%, to 5500 panelists.
+        <div class="container">
+            <div class="intro-text">
+                <div class="intro-heading text-uppercase page-title">Consumer Research Ads</div>
+                <div class="intro-subheading">
+                    <p>A collection of media created to recruit consumers for Starbucks consumer research studies. These were posted on various social media platforms, flyers around the city, and public transit stations.</p>
+                </div>
+                <div class="credit">Using this content, I was able to leverage a limited budget to launch recruitment campaigns that saw an increase in our consumer database of over 220%, to 5500 panelists.</div>
+            </div>
+        </div>
     </header>
-
     <section>
         <div class="media-container">
             <img src="img/portfolio/7.png" alt="Consumer Research Ad 7">
