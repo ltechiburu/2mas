@@ -68,6 +68,10 @@
     header .credit {
       font-style: italic;
       font-size: 0.8em;
+      position: absolute;
+      bottom: 10px; /* Adjust the distance from the bottom */
+      left: 50%;
+      transform: translateX(-50%);
     }
 
     @media(min-width:768px) {
@@ -105,15 +109,6 @@
       font-weight: 700;
     }
 
-    .toolbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .dropdown-container {
-      position: relative;
-    }
 
 
   </style>
@@ -148,7 +143,7 @@
         <div class="intro-heading text-uppercase page-title">NPB2MLB</div>
         <div class="intro-subheading">
           A case study on the transition from the Japanese baseball league to the Majors, and what we can expect from Seiya Suzuki
-          <em class="credit">Place credits here.</em>
+         <br> <em class="credit">Place credits here.</em>
         </div>
       </div>
     </div>
