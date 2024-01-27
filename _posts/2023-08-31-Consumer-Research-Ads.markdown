@@ -2,7 +2,7 @@
 layout: default
 modal-id: 4
 date: 2023-08-31
-img: cake.png
+img: game2.png
 alt: cake cartoon
 project-date: 2022 to 2023
 client: Starbucks
