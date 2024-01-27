@@ -498,8 +498,10 @@ function toggleDropdown() {
   // Get the scroll position
   var scrollPosition = window.scrollY;
 
-  // Check if the scroll position is greater than or equal to the maroon header height
-  if (scrollPosition >= maroonHeaderHeight) {
+  var threshold = maroonHeaderHeight * 0.5;
+
+  // Check if the scroll position is greater than or equal to the threshold
+  if (scrollPosition >= threshold) {
     // Show the dynamic text on the navbar
     document.querySelector('.navbar-brand .dynamic-text').style.display = 'block';
   } else {
