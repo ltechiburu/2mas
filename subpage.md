@@ -1,5 +1,5 @@
 ---
-layout: style
+layout: default
 title: Subpage Title
 stylesheets:
   - "/css/all.css"
