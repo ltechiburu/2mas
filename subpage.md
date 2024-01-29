@@ -2,7 +2,7 @@
 layout: default
 title: Subpage Title
 stylesheets:
-  - "/css/all.css"
+  - "/_layouts/style.css"
 ---
 
 <!-- Your subpage content goes here -->
