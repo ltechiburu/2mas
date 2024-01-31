@@ -141,6 +141,12 @@ header .credit {
           outline: 0;
       }
 
+      .ltechiburu-font {
+          font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+          font-weight: 100;
+      }
+
+
 
     /* Additional styles for the header */
     header .intro-text .page-title {
@@ -150,7 +156,7 @@ header .credit {
     }
         header .introtext .intro-subheading {
       font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
-      font-size: 2em; /* Adjust the font size as needed */
+      font-size: 2; /* Adjust the font size as needed */
       font-weight: 70;
     }
     }
@@ -191,12 +197,12 @@ header .credit {
 
 </body>
 <!-- Footer -->
-<footer class="text-center">
+<footer class="text-center ltechiburu-font">
   <div class="footer-above">
     <div class="container">
       <div class="row">
         <div class="footer-col col-md-4">
-          <h3>New York, NY</h3>
+          <h3>Location</h3>
           <p>
             {% for adress in site.address %}
             {{ adress.line }} <br>
