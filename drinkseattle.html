@@ -492,6 +492,71 @@ let filteredBars = [];
     displayBarInfo(bar);
   });
 }
+    // Search Bar functions
+function searchBars() {
+  const searchInput = document.getElementById("searchBar").value.toLowerCase();
+  const barsContainer = document.getElementById("barsContainer");
+  const dropdown = document.getElementById("searchDropdown");
+
+  // Minimum characters to trigger the dropdown
+  const minChars = 3;
+
+  // Clear the current barsContainer content and the dropdown
+  barsContainer.innerHTML = '';
+  dropdown.innerHTML = '';
+
+  if (searchInput.length >= minChars) {
+    // Filter bars based on the search input
+    const filteredBars = bars.filter(bar => {
+      return (
+        bar.name.toLowerCase().includes(searchInput) ||
+        bar.neighborhood.toLowerCase().includes(searchInput)
+      );
+    });
+
+    // Display the filtered bars in the container
+    filteredBars.forEach(bar => {
+      displayBarInfo(bar);
+    });
+
+    // Generate and display the dropdown list
+    filteredBars.forEach(bar => {
+      const dropdownItem = document.createElement("div");
+      dropdownItem.classList.add("dropdown-item");
+      dropdownItem.textContent = bar.name;
+      dropdownItem.addEventListener("click", () => {
+        // Set the selected bar in the search input
+        document.getElementById("searchBar").value = bar.name;
+        // Clear the dropdown and update the map
+        dropdown.innerHTML = '';
+        updateMapMarkers([bar]);
+      });
+      dropdown.appendChild(dropdownItem);
+    });
+
+    // Show the dropdown
+    dropdown.style.display = 'block';
+  } else {
+    // Hide the dropdown if fewer than three characters are typed
+    dropdown.style.display = 'none';
+  }
+}
+
+// Add a new function to clear the dropdown
+function clearDropdown() {
+  const dropdown = document.getElementById("searchDropdown");
+  dropdown.innerHTML = '';
+  dropdown.style.display = 'none';
+}
+
+    // Attach the clearDropdown function to the document click event
+document.addEventListener('click', function (event) {
+  const isClickInsideDropdown = document.getElementById("searchDropdown").contains(event.target);
+  const isClickInsideSearchBar = document.getElementById("searchBar").contains(event.target);
+  if (!isClickInsideDropdown && !isClickInsideSearchBar) {
+    clearDropdown();
+  }
+});
 
 // Helper function to get marker icon based on rating
 function getMarkerIcon(rating) {
