@@ -322,7 +322,7 @@ margin: auto;
       </div>
       <div class="search-container">
     <label for="searchBar" style="color: white;">Search:</label>
-    <input type="text" id="searchBar" oninput="searchBars()" placeholder="Search by bar name or neighborhood...">
+    <input type="text" id="searchBar" oninput="searchBars()" placeholder="Currently Troubleshooting..">
 </div>
     </div>
 
@@ -572,18 +572,6 @@ function sortBars() {
     displayBarInfo(bar);
   });
 }
-// Adding a search function
-function searchBars() {
-    const searchInput = document.getElementById("searchBar").value.toLowerCase();
-    const barsContainer = document.getElementById("barsContainer");
-
-    // Filter bars based on the search input
-    const filteredBars = bars.filter(bar => {
-        return (
-            bar.name.toLowerCase().includes(searchInput) ||
-            bar.neighborhood.toLowerCase().includes(searchInput)
-        );
-    });
     
 // Function to generate neighborhood options
     function generateNeighborhoodOptions() {
