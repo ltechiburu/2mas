@@ -539,19 +539,6 @@ function getMarkerIcon(rating) {
 
     barsContainer.appendChild(barElement);
   }
-// Adding a search function
-function searchBars() {
-    const searchInput = document.getElementById("searchBar").value.toLowerCase();
-    const barsContainer = document.getElementById("barsContainer");
-
-    // Filter bars based on the search input
-    const filteredBars = bars.filter(bar => {
-        return (
-            bar.name.toLowerCase().includes(searchInput) ||
-            bar.neighborhood.toLowerCase().includes(searchInput)
-        );
-    });
-    
    // Function for sort ability
 function sortBars() {
   const sortOptions = document.getElementById("sortOptions");
