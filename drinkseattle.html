@@ -521,6 +521,17 @@ function getMarkerIcon(rating) {
     const barsContainer = document.getElementById("barsContainer");
     const barElement = document.createElement("div");
     barElement.classList.add("bar-info");
+
+// Create a span element for the bar name
+  const barNameElement = document.createElement("span");
+  barNameElement.classList.add("bar-name");
+  barNameElement.innerHTML = `<strong>${bar.name}</strong> - <span class="neighborhood"><em>${bar.neighborhood}</em></span>`;
+
+  // Add a click event listener for the bar name (no action for now)
+  barNameElement.addEventListener("click", function () {
+    // You can add any action here when a bar name is clicked
+    console.log(`Bar name clicked: ${bar.name}`);
+  });
     
     barElement.innerHTML = `<div class="bar-name"><strong>${bar.name}</strong> - <span class="neighborhood"><em>${bar.neighborhood}</em></span></div>` +
       `<div>${getRatingStars(bar.rating)}</div>` +
@@ -528,12 +539,6 @@ function getMarkerIcon(rating) {
       `<hr>`;
 
     barsContainer.appendChild(barElement);
-      // Add click event listener to bar name for opening the info window
-  const barNameElement = barElement.querySelector(".bar-name");
-  barNameElement.addEventListener("click", function () {
-    infowindow.open(map, marker);
-  });
-
   }
     
    // Function for sort ability
