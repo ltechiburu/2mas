@@ -35,6 +35,24 @@
     .navbar-inverse {
       border: 0;
     }
+/* Additional style for the dynamic text in the navbar */
+.navbar .dynamic-text {
+  color: #800000; /* Maroon color */
+  font-size: 1.5em; /* Adjust the font size as needed */
+  display: flex;
+  align-items: center; /* Center vertically */
+  justify-content: center; /* Center horizontally */
+   position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Initially set to display none - modify this if you want it to be initially visible */
+.navbar .dynamic-text {
+  display: none;
+}
+
     header {
       position: relative;
       background-color: #4d1c31; /* Maroon color */
@@ -46,7 +64,7 @@
       padding-top: 100px;
       padding-bottom: 50px;
     }
-header .credit {
+header .map-credit {
   font-style: italic;
   font-size: 0.8em; /* Adjust the font size as needed */
   position: absolute;
@@ -81,6 +99,21 @@ header .credit {
       .navbar-fixed-top.navbar-shrink .navbar-brand {
         font-size: 1.5em;
       }
+    }
+    @media (max-width: 767px) {
+    header .intro-text .page-title {
+      max-width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+      font-size: 2.5em !important;
+    }
+
+    header .map-credit {
+      font-size: 0.5em ;
+      bottom: 10px !important;
+    }
+  }
+/*Footer formatting*/
     footer {
     color: #fff;
       }
@@ -145,20 +178,50 @@ header .credit {
           font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
           font-weight: 100em;
       }
-
-
-
     /* Additional styles for the header */
     header .intro-text .page-title {
       font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
       font-size: 4.5em; /* Adjust the font size as needed */
       font-weight: 700;
     }
-        header .introtext .intro-subheading {
-      font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
-      font-size: 2; /* Adjust the font size as needed */
-      font-weight: 70;
+    
+    .toolbar {
+      /* Your existing toolbar styles */
+     display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
+
+    .dropdown-container {
+      position: relative;
+    }
+ .neighborhood-dropdown {
+      display: none;
+      position: absolute;
+      background-color: white; /* Adjust to your desired background color */
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+      width: 200px; /* Adjust the width as needed */
+      border-radius: 5px; /* Add border radius for a rounded appearance */
+      margin-top: 5px; /* Add a margin to separate it from the toolbar */
+
+    }
+
+    .neighborhood-dropdown label {
+      display: block;
+      padding: 8px;
+      color: #4d1c31; /* Text color */
+      cursor: pointer;
+    }
+
+    .neighborhood-dropdown label:hover {
+      background-color: #4d1c31; /* Background color on hover */
+      color: white; /* Text color on hover */
+    }
+
+
+    .dropdown-container:hover .neighborhood-dropdown {
+      display: block;
     }
   </style>
 </head>
@@ -169,7 +232,19 @@ header .credit {
     <div class="container">
       <a class="navbar-brand" href="https://ltechiburu.github.io/2mas/">
   Tomas Echiburu
+  <!-- Dynamic text element within the navbar -->
+  <span class="dynamic-text" id="navbarDynamicText">DRINKSEATTLE</span>
 </a>
+
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+        aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <!-- Add your navigation links here if needed -->
+        </ul>
+      </div>
     </div>
   </nav>
 
@@ -177,25 +252,72 @@ header .credit {
   <header>
     <div class="container">
       <div class="intro-text">
-        <div class="intro-heading text-uppercase page-title">TESTING SITE</div>
+        <div class="intro-heading text-uppercase page-title">DrinkSeattle</div>
         <div class="intro-subheading">
           After 7 years in Seattle, I have found myself enjoying happy hour beers, post-bike ride rewards, late night
           cocktails and more, all around the city. Below is a guide with some of the most notable places I have
           frequented over the years.
           <br> <br> Green pins are places I would recommend to a friend, while red pins are places I think you should
           avoid. A yellow pin means decide for yourself <br>
-<em class="credit">Map created with Google Maps API technology. Markers, reviews, and page formatting coded in HTML, JavaScript, CSS.</em>
+<em class="map-credit">Map created with Google Maps API technology. Markers, reviews, and page formatting coded in HTML, JavaScript, CSS.</em>
 
         </div>
       </div>
     </div>
   </header>
+
+<style>
+    /* Add any custom styles for your map container if needed */
+ #map {
+  background: #000080; /* Deep Blue Color */
+/* Gradient with vibrant colors */
+  border: 3px solid #4d1c31; /* Maroon outline for contrast */
+  border-radius: 25px; /* Larger border radius for a unique shape */
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5); /* Stronger box shadow for depth */
+  height: 400px;
+  width: 80%;
+margin: auto;
+  transform-origin: center center;
+  transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out; /* Add transitions for dynamic effects */
+}
+
+#map:hover {
+  transform: scale(1.05); /* Scale up and rotate the map on hover for dynamic movement */
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.7); /* Adjusted box shadow on hover for added depth */
+}
+
+  </style>
   <!-- Map Container -->
   <br>
+  <div id="map"></div>
+  
+  <!-- Bar Information Container -->
+  <div class="container mt-5">
+    <!-- Toolbar for sorting and future filtering options -->
+    <div class="toolbar" style="background-color: #4d1c31; padding: 10px; margin-bottom: 10px;">
+        <!-- Filter by Neighborhood tab -->
+        <div class="filter-tab"onclick="toggleDropdown()">
+          <span style="cursor: pointer; color: white;">Filter by Neighborhood ▼</span>
+          <!-- Hoverable dropdown for Filter by Neighborhood -->
+          <div class="neighborhood-dropdown" id="filterNeighborhoodDropdown">
+            <!-- Dynamically populate neighborhood options here -->
+          
+          </div>
+        </div>
+      <div class="dropdown-container">
+        <label for="sortOptions" style="color: white;">Sort By:</label>
+        <select id="sortOptions" onchange="sortBars()" style="color: black; background-color: #ffffff;">
+          <option value="" disabled selected>-- Select One --</option>
+          <option value="rating">Rating</option>
+          <option value="neighborhood">Neighborhood</option>
+        </select>
+      </div>
+    </div>
 
-   
-
-</body>
+    <div id="barsContainer" style="margin-top: 20px;">
+      <!-- Bar reviews will be displayed here -->
+    </div>
+  </div>
 <!-- Footer -->
 <footer class="text-center ltechiburu-font">
   <div class="footer-above">
@@ -241,4 +363,229 @@ header .credit {
     <i class="fa fa-chevron-up"></i>
   </a>
 </div>
+  <!-- JavaScript for Google Maps API -->
+
+
+  <script>
+    // Bar data
+   const bars = [
+
+
+     
+     // Add more bar data as needed
+  ];
+
+let activeFilter = false;
+let filteredBars = [];
+
+ function initMap() {
+  const map = new google.maps.Map(document.getElementById('map'), {
+    center: { lat: 47.6062, lng: -122.3321 }, // Seattle coordinates
+    zoom: 12,
+  });
+
+  // Add markers and info windows
+  bars.forEach(bar => {
+    const marker = new google.maps.Marker({
+      position: { lat: bar.lat, lng: bar.lng },
+      map: map,
+      title: bar.name,
+      icon: getMarkerIcon(bar.rating), // Set the marker icon based on rating
+    });
+    const infowindow = new google.maps.InfoWindow({
+      content: `<div style="font-size:16px;"><strong class="bar-marker">${bar.name}</strong> - <em>${bar.neighborhood}</em></div>` +
+        `<div style="font-size:18px;">Rating: ${getRatingStars(bar.rating)}</div>` +
+        `<div style="font-size:14px;">${bar.description}</div>`
+    });
+
+    marker.addListener('click', function () {
+      infowindow.open(map, marker);
+    });
+  });
+
+  // Display bar information below the map
+  bars.forEach(bar => {
+    displayBarInfo(bar);
+  });
+}
+
+// Helper function to get marker icon based on rating
+function getMarkerIcon(rating) {
+  if (!isNaN(rating)) {
+    if (rating >= 4) {
+      return {
+        url: 'http://maps.google.com/mapfiles/ms/icons/green-dot.png',
+        scaledSize: new google.maps.Size(32, 32),
+        origin: new google.maps.Point(0, 0),
+        anchor: new google.maps.Point(16, 32),
+      };
+    } else if (rating >= 3) {
+      return {
+        url: 'http://maps.google.com/mapfiles/ms/icons/yellow-dot.png',
+        scaledSize: new google.maps.Size(32, 32),
+        origin: new google.maps.Point(0, 0),
+        anchor: new google.maps.Point(16, 32),
+      };
+    }
+  }
+
+  return {
+    url: 'http://maps.google.com/mapfiles/ms/icons/red-dot.png',
+    scaledSize: new google.maps.Size(32, 32),
+    origin: new google.maps.Point(0, 0),
+    anchor: new google.maps.Point(16, 32),
+  };
+}
+
+
+  // Helper function to get star ratings
+  function getRatingStars(rating) {
+    const fullStars = "★".repeat(Math.floor(rating));
+    const halfStar = (rating % 1 !== 0) ? "½" : "";
+    const emptyStars = "☆".repeat(Math.floor(5 - rating));
+    return `${fullStars}${halfStar}${emptyStars}`;
+  }
+
+  function displayBarInfo(bar) {
+    const barsContainer = document.getElementById("barsContainer");
+    const barElement = document.createElement("div");
+    barElement.classList.add("bar-info");
+    
+    barElement.innerHTML = `<div class="bar-name"><strong>${bar.name}</strong> - <span class="neighborhood"><em>${bar.neighborhood}</em></span></div>` +
+      `<div>${getRatingStars(bar.rating)}</div>` +
+      `<div class="description">${bar.description}</div>` +
+      `<hr>`;
+
+    barsContainer.appendChild(barElement);
+  }
+    
+   // Function for sort ability
+function sortBars() {
+  const sortOptions = document.getElementById("sortOptions");
+  const selectedOption = sortOptions.value;
+
+  if (selectedOption === "rating") {
+    if (activeFilter) {
+      // Sort the filtered bars by rating
+      filteredBars.sort((a, b) => b.rating - a.rating);
+    } else {
+      // Sort all bars by rating
+      bars.sort((a, b) => b.rating - a.rating);
+    }
+  } else if (selectedOption === "neighborhood") {
+    if (activeFilter) {
+      // Sort the filtered bars by neighborhood
+      filteredBars.sort((a, b) => a.neighborhood.localeCompare(b.neighborhood));
+    } else {
+      // Sort all bars by neighborhood
+      bars.sort((a, b) => a.neighborhood.localeCompare(b.neighborhood));
+    }
+  }
+
+  // Clear the current barsContainer content
+  const barsContainer = document.getElementById("barsContainer");
+  barsContainer.innerHTML = '';
+
+  // Display the sorted bars
+  const barsToDisplay = activeFilter ? filteredBars : bars;
+  barsToDisplay.forEach(bar => {
+    displayBarInfo(bar);
+  });
+}
+
+    
+// Function to generate neighborhood options
+    function generateNeighborhoodOptions() {
+      const neighborhoodDropdown = document.getElementById("filterNeighborhoodDropdown");
+      const uniqueNeighborhoods = [...new Set(bars.map(bar => bar.neighborhood))];
+      // Count reviews for each neighborhood
+  const neighborhoodsCount = uniqueNeighborhoods.reduce((count, neighborhood) => {
+    count[neighborhood] = bars.filter(bar => bar.neighborhood === neighborhood).length;
+    return count;
+  }, {});
+      // Sort neighborhoods alphabetically
+  uniqueNeighborhoods.sort();
+      // Clear existing options
+      neighborhoodDropdown.innerHTML = '';
+// Add Apply button
+  const applyButton = document.createElement("button");
+  applyButton.innerText = "Apply";
+  applyButton.addEventListener("click", applyFilter);
+  neighborhoodDropdown.appendChild(applyButton);
+      // Add Clear Filter button
+  const clearFilterButton = document.createElement("button");
+  clearFilterButton.innerText = "Clear Filter";
+  clearFilterButton.addEventListener("click", clearFilter); // Attach the clear filter function
+  neighborhoodDropdown.appendChild(clearFilterButton);
+      // Populate neighborhood options
+      uniqueNeighborhoods.forEach(neighborhood => {
+        const label = document.createElement("label");
+        const checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+        checkbox.value = neighborhood;
+        label.appendChild(checkbox);
+        label.appendChild(document.createTextNode(` ${neighborhood} (${neighborhoodsCount[neighborhood]})`));
+
+        neighborhoodDropdown.appendChild(label);
+      });
+    }
+
+// Function to apply the selected filter
+function applyFilter() {
+  const selectedNeighborhoods = Array.from(document.querySelectorAll('#filterNeighborhoodDropdown input[type="checkbox"]:checked'))
+    .map(checkbox => checkbox.value);
+
+ filteredBars = bars.filter(bar => selectedNeighborhoods.includes(bar.neighborhood));
+  activeFilter = true;
+  
+  // Clear the current barsContainer content
+  const barsContainer = document.getElementById("barsContainer");
+  barsContainer.innerHTML = '';
+
+  // Display the filtered bars
+  filteredBars.forEach(bar => {
+    displayBarInfo(bar);
+  });
+}
+    // Function to clear the filter
+function clearFilter() {
+  const checkboxes = document.querySelectorAll('#filterNeighborhoodDropdown input[type="checkbox"]');
+  checkboxes.forEach(checkbox => {
+    checkbox.checked = true;
+  });
+ 
+  activeFilter = false;
+  applyFilter(); // Reapply filter to show all reviews
+}
+    // Call the function to generate neighborhood options when the page loads
+    generateNeighborhoodOptions();
+
+// Add this function to your existing JavaScript code
+function toggleDropdown() {
+  const dropdown = document.querySelector(".neighborhood-dropdown");
+  dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+}
+
+   // Add a scroll event listener to toggle the visibility of the dynamic text
+   document.addEventListener('scroll', function () {
+  // Get the height of the maroon header
+  var maroonHeaderHeight = document.querySelector('header').offsetHeight;
+  // Get the scroll position
+  var scrollPosition = window.scrollY;
+
+  var threshold = maroonHeaderHeight * 0.5;
+
+  // Check if the scroll position is greater than or equal to the threshold
+  if (scrollPosition >= threshold) {
+    // Show the dynamic text on the navbar
+    document.querySelector('.navbar-brand .dynamic-text').style.display = 'block';
+  } else {
+    // Hide the dynamic text on the navbar
+    document.querySelector('.navbar-brand .dynamic-text').style.display = 'none';
+  }
+});
+   
+  </script>
+</body>
+
 </html>
