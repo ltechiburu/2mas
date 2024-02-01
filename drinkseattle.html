@@ -473,12 +473,6 @@ let filteredBars = [];
       infowindow.open(map, marker);
     });
   });
-// Add click event listener to bar name for testing
-  const barNameElement = document.querySelector(".bar-name");
-  barNameElement.addEventListener("click", function () {
-    console.log("Bar name clicked!");
-    // You can add more actions here to test
-  });
   // Display bar information below the map
   bars.forEach(bar => {
     displayBarInfo(bar);
