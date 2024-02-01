@@ -561,7 +561,33 @@ function searchBars() {
     dropdown.style.display = 'none';
   }
 }
+// New function to create and position the search dropdown
+function createSearchDropdown(filteredBars) {
+  const searchDropdown = document.getElementById("searchDropdown");
 
+  // Clear existing dropdown content
+  searchDropdown.innerHTML = '';
+
+  // Check if there are results to show
+  if (filteredBars.length > 0) {
+    // Create dropdown content
+    filteredBars.forEach(bar => {
+      // ... (unchanged code for creating dropdown options)
+    });
+
+    // Position and display the dropdown
+    const searchBar = document.getElementById("searchBar");
+    const searchBarRect = searchBar.getBoundingClientRect();
+
+    searchDropdown.style.width = `${searchBarRect.width}px`; // Set the width
+    searchDropdown.style.top = `${searchBarRect.bottom}px`;
+    searchDropdown.style.left = `${searchBarRect.left}px`;
+    searchDropdown.style.display = 'block';
+  } else {
+    // Hide the dropdown if there are no results
+    searchDropdown.style.display = 'none';
+  }
+}
 // Add a new function to clear the dropdown
 function clearDropdown() {
   const dropdown = document.getElementById("searchDropdown");
