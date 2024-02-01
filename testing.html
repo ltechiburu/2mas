@@ -526,28 +526,23 @@ let filteredBars = [];
       // Clear the current barsContainer content and the dropdown
       barsContainer.innerHTML = '';
       dropdown.innerHTML = '';
-
-      if (searchInput.length >= minChars) {
-        // Filter bars based on the search input
-        const filteredBars = bars.filter(bar => {
-          return (
-            bar.name.toLowerCase().includes(searchInput) ||
-            bar.neighborhood.toLowerCase().includes(searchInput)
-          );
-        });
-
-        // Display the filtered bars in the container
+ // Display the filtered bars in the container
         filteredBars.forEach(bar => {
           displayBarInfo(bar);
         });
+  if (searchInput.length >= 3) {
+    // Display the filtered bars in the container
+    filteredBars.forEach(bar => {
+      displayBarInfo(bar);
+    });
 
-        // Generate and display the dropdown list
-        createSearchDropdown(filteredBars);
-      } else {
-        // Hide the dropdown if fewer than three characters are typed
-        dropdown.style.display = 'none';
-      }
-    }
+    // Generate and display the dropdown list
+    createSearchDropdown(filteredBars);
+  } else {
+    // Hide the dropdown if fewer than three characters are typed
+    dropdown.style.display = 'none';
+  }
+}
 
     // New function to create and position the search dropdown
     function createSearchDropdown(filteredBars) {
