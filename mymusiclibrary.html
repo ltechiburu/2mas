@@ -8,18 +8,28 @@
             margin: 0;
             padding: 0;
             overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
         }
 
         .selection-container {
-            display: flex;
-            transition: transform 0.5s ease;
+            position: relative;
+            width: 300px; /* Adjust as needed */
+            height: 300px; /* Adjust as needed */
         }
 
         .artist {
-            flex: 0 0 20%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform-origin: 50% 50%;
+            transform: translate(-50%, -50%) rotate(0deg);
             cursor: pointer;
             overflow: hidden;
-            transition: flex 0.5s ease;
+            transition: transform 0.5s ease;
         }
 
         .artist img {
@@ -29,7 +39,28 @@
         }
 
         .artist.selected {
-            flex: 0 0 40%;
+            z-index: 1; /* Bring the selected artist to the front */
+            transform: translate(-50%, -50%) rotate(0deg);
+        }
+
+        .artist.selected ~ .artist {
+            transition-delay: 0.1s; /* Adjust the delay to control the animation speed */
+        }
+
+        .artist:nth-child(2) {
+            transform: translate(-50%, -50%) rotate(72deg);
+        }
+
+        .artist:nth-child(3) {
+            transform: translate(-50%, -50%) rotate(144deg);
+        }
+
+        .artist:nth-child(4) {
+            transform: translate(-50%, -50%) rotate(216deg);
+        }
+
+        .artist:nth-child(5) {
+            transform: translate(-50%, -50%) rotate(288deg);
         }
     </style>
     <title>Music Selection Tool</title>
@@ -67,13 +98,6 @@
 
         // Add 'selected' class to the clicked artist
         selectedArtist.classList.add('selected');
-
-        // Center the selected artist in the view
-        const containerRect = container.getBoundingClientRect();
-        const selectedRect = selectedArtist.getBoundingClientRect();
-        const offset = (selectedRect.left - containerRect.left) - (containerRect.width / 2 - selectedRect.width / 2);
-
-        container.style.transform = 'translateX(' + -offset + 'px)';
     }
 </script>
 </body>
