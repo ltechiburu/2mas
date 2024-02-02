@@ -68,6 +68,14 @@
         .artist:nth-child(5) {
             transform: translateX(-40%);
         }
+          .artist-info {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .artist-info h3 {
+            margin: 0;
+        }
     </style>
     <title>Music Selection Tool</title>
 </head>
@@ -76,6 +84,15 @@
 <div class="selection-container" id="selectionContainer">
     <div class="artist" id="artist1" onclick="selectArtist(1)">
         <img src="img/artists/kendrick.png" alt="Artist 1">
+        <div class="artist-info" id="info1">
+            <h3>Kendrick Lamar</h3>
+            <p>Top Played Songs:</p>
+            <ol>
+                <li>Money Trees (feat. Jay Rock)</li>
+                <li>King Kunta/li>
+                <li>B*tch Don't Kill My Vibe</li>
+            </ol>
+        </div>
     </div>
     <div class="artist" id="artist2" onclick="selectArtist(2)">
         <img src="img/artists/kanye.png" alt="Artist 2">
