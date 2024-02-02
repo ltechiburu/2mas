@@ -169,6 +169,8 @@
     function selectArtist(artistNumber) {
         const container = document.getElementById('selectionContainer');
         const selectedArtist = document.getElementById('artist' + artistNumber);
+        const artistInfoContainer = document.getElementById('artistInfoContainer');
+
 
         // Remove 'selected' class from all artists
         const artists = container.getElementsByClassName('artist');
@@ -183,8 +185,17 @@
         const containerRect = container.getBoundingClientRect();
         const selectedRect = selectedArtist.getBoundingClientRect();
         const offset = (selectedRect.left - containerRect.left) - (containerRect.width / 2 - selectedRect.width / 2);
-
         container.style.transform = 'translateX(' + -offset + 'px)';
+    }
+        // Hide all artist info
+        const artistInfos = document.getElementsByClassName('artist-info');
+        for (const info of artistInfos) {
+            info.style.display = 'none';
+        }
+
+        // Show the selected artist info
+        const selectedArtistInfo = document.getElementById('info' + artistNumber);
+        selectedArtistInfo.style.display = 'block';
     }
 
     function showAbout() {
