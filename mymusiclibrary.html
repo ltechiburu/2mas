@@ -52,11 +52,11 @@
         }
 
         .artist:not(.selected) img {
-            filter: grayscale(80%); /* Adjust the grayscale for non-selected images */
+            filter: grayscale(50%); /* Adjust the grayscale for non-selected images */
         }
 
         .artist-info-container {
-            display: none;
+            display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
@@ -64,21 +64,12 @@
         }
         .artist-info {
             text-align: left;
-            margin-top: 10px;
             display: none;
             background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
             padding: 10px;
             border-radius: 10px;
         }
-
-        .artist.selected .artist-container {
-            display: flex;
-        }
         
-        .artist.selected .artist-info {
-            display: block; /* Show artist info when the artist is selected */
-        }
-
         .artist-info h3 {
             margin: 0;
             text-align: center;
