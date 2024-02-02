@@ -1,0 +1,202 @@
+<!-- topartists.html -->
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+
+    .selection-container {
+        display: flex;
+        overflow-x: auto;
+        position: relative;
+        width: 100%;
+        transition: transform 0.3s ease;
+        margin: 0 auto;
+        scrollbar-width: thin;
+        scrollbar-color: darkgray lightgray;
+    }
+
+    .selection-container::-webkit-scrollbar {
+        width: 12px; /* for Chrome, Safari, and Opera */
+    }
+
+    .selection-container::-webkit-scrollbar-thumb {
+        background-color: darkgray; /* for Chrome, Safari, and Opera */
+    }
+
+    .selection-container::-webkit-scrollbar-track {
+        background-color: lightgray; /* for Chrome, Safari, and Opera */
+    }
+
+    .artist {
+        flex: 0 0 20%;
+        cursor: pointer;
+        overflow: hidden;
+        transition: transform 0.5s ease, opacity 0.5s ease;
+        position: relative;
+        z-index: 1;
+    }
+
+    .artist img {
+        width: 100%;
+        height: auto;
+        display: block;
+        transition: transform 0.5s ease, filter 0.5s ease;
+        z-index: 1;
+    }
+
+    .artist.selected {
+        flex: 0 0 40%;
+        z-index: 1;
+    }
+
+    .artist.selected img {
+        transform: scale(1); /* Adjust the scale for the selected image */
+    }
+
+    .artist:not(.selected) {
+        opacity: 0.4; /* Adjust the opacity for non-selected images */
+    }
+
+    .artist:not(.selected) img {
+        filter: grayscale(50%); /* Adjust the grayscale for non-selected images */
+    }
+
+    .artist-info-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-top: 20px;
+        height: 400px; /* Set a fixed height for the artist-info-container */
+        overflow-y: auto; /* Make it scrollable */
+    }
+
+    .artist-info {
+        text-align: left;
+        display: none;
+        background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+        padding: 10px;
+        border-radius: 10px;
+    }
+
+    .info-content {
+        display: flex;
+        align-items: center; /* Align children vertically center */
+    }
+
+    .info-content h3 {
+        margin: 0; /* Remove margin for better alignment */
+    }
+
+    .info-content iframe {
+        width: 100%;
+        max-width: 300px;
+        overflow: hidden;
+        border-radius: 10px;
+        margin-right: 10px; /* Add some space between the player and top songs */
+    }
+
+    .top-songs {
+        flex-grow: 1; /* Allow the top songs to take remaining space */
+    }
+
+    .top-songs p {
+        margin: 0; /* Remove margin for better alignment */
+    }
+
+    .top-songs ol {
+        margin-top: 0; /* Remove top margin for better alignment */
+    }
+
+    .large-container {
+        /* Add styles for your large container */
+        background-color: lightgray;
+        padding: 20px;
+        margin-top: 20px;
+    }
+</style>
+
+<div class="selection-container" id="selectionContainer">
+    <div class="artist" id="artist1" onclick="selectArtist(1)">
+        <img src="img/artists/kendrick.png" alt="Artist 1">
+    </div>
+    <div class="artist" id="artist2" onclick="selectArtist(2)">
+        <img src="img/artists/kanye.png" alt="Artist 2">
+    </div>
+    <div class="artist" id="artist3" onclick="selectArtist(3)">
+        <img src="img/artists/frank-ocean.png" alt="Artist 3">
+    </div>
+    <div class="artist" id="artist4" onclick="selectArtist(4)">
+        <img src="img/artists/weeknd.png" alt="Artist 4">
+    </div>
+    <div class="artist" id="artist5" onclick="selectArtist(5)">
+        <img src="img/artists/mac-miller.png" alt="Artist 5">
+    </div>
+</div>
+
+<div class="artist-info-container" id="artistInfoContainer">
+    <div class="artist-info" id="info1">
+        <h3>Kendrick Lamar</h3>
+        <div class ="info-content">
+            <iframe id="embedPlayer" src="https://embed.music.apple.com/us/album/money-trees-feat-jay-rock/1440818890?i=1440818969&amp;app=music&amp;itsct=music_box_player&amp;itscg=30200&amp;ls=1&amp;theme=dark" height="175px" frameborder="0" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation-by-user-activation" allow="autoplay *; encrypted-media *; clipboard-write" style="width: 100%; max-width: 300px; overflow: hidden; border-radius: 10px; transform: translateZ(0px); animation: 2s ease 0s 6 normal none running loading-indicator; background-color: rgb(228, 228, 228);"></iframe>
+            <div class="top-songs">
+                <p>Top Played Songs:</p> 
+                <ol>
+                    <li>Money Trees (feat. Jay Rock)</li>
+                    <li>King Kunta</li>
+                    <li>B*tch Don't Kill My Vibe</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+    <div class="artist-info" id="info2">
+        <h3>Kanye West</h3>
+        <div class="top-songs">
+            <p>Top Played Songs:</p> 
+            <ol>
+                <li>Spaceship (feat. GLC & Consequence)</li>
+                <li>Father Stretch My Hands, Pt. 1</li>
+                <li>Gorgeous (feat. Kid Cudi & Raekwon)</li>
+            </ol>
+        </div>
+    </div>
+    <div class="artist-info" id="info3">
+        <h3>Frank Ocean</h3>
+        <div class="top-songs">
+            <p>Top Played Songs:</p>
+            <ol>
+                <li>Nikes</li>
+                <li>Pink + White</li>
+                <li>Ivy</li>
+            </ol>
+        </div>
+    </div>
+    <div class="artist-info" id="info4">
+        <h3>The Weeknd</h3>
+        <div class="top-songs">
+            <p>Top Played Songs:</p>
+            <ol>
+                <li>Sidewalks (feat. Kendrick Lamar)</li>
+                <li>Reminder</li>
+                <li>Starboy (feat. Daft Punk)</li>
+            </ol>
+        </div>
+    </div>
+    <div class="artist-info" id="info5">
+        <h3>Mac Miller</h3>
+        <div class="top-songs">
+            <p>Top Played Songs:</p>
+            <ol>
+                <li>Earth (feat. Future)</li>
+                <li>Diablo</li>
+                <li>Blue World</li>
+            </ol>
+        </div>
+    </div>
+</div>
