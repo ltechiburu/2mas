@@ -71,8 +71,18 @@
           .artist-info {
             text-align: center;
             margin-top: 10px;
+            display: none; 
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+            padding: 10px;
+            text-align: center;
         }
-
+            .artist.selected .artist-info {
+            display: block; /* Show artist info when the artist is selected */
+        }
         .artist-info h3 {
             margin: 0;
         }
