@@ -2,8 +2,32 @@
 
 document.addEventListener('DOMContentLoaded', function () {
     // JavaScript code for setting up event listeners
-    // ...
+  
 });
+function includeHTML() {
+    var elements, i, file, xhttp;
+    // Loop through all elements with include-html attribute
+    elements = document.querySelectorAll('[include-html]');
+    for (i = 0; i < elements.length; i++) {
+        // Get the file path from the attribute
+        file = elements[i].getAttribute('include-html');
+        if (file) {
+            // Create a new XMLHttpRequest object
+            xhttp = new XMLHttpRequest();
+            // Configure it to fetch the HTML file
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    // Replace the content of the element with the loaded HTML
+                    elements[i].innerHTML = this.responseText;
+                }
+            }
+            // Open the file for reading
+            xhttp.open('GET', file, true);
+            // Send the request
+            xhttp.send();
+        }
+    }
+}
 
 function selectArtist(artistNumber) {
     const container = document.getElementById('selectionContainer');
