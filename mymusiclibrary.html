@@ -112,6 +112,29 @@
             margin: 0;
             text-align: center;
         }
+        @media only screen and (max-width: 600px) {
+            .menu-bar {
+                flex-direction: row; /* Change flex direction to row for mobile layout */
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                z-index: 3; /* Ensure the menu bar stays on top in mobile layout */
+            }
+
+            .selection-container {
+                flex-direction: column; /* Change flex direction to column for mobile layout */
+            }
+
+            .artist {
+                flex: 1 0 auto; /* Take full width for mobile layout */
+                margin: 5px; /* Add some margin between artists in mobile layout */
+            }
+
+            .artist.selected {
+                flex: 1 0 auto; /* Take full width for mobile layout */
+            }
+        }
     </style>
     <title>Music Selection Tool</title>
 </head>
