@@ -37,14 +37,6 @@
         .menu-item:hover {
             background-color: #593446; /* Darker color on hover */
         }
-        .menu-toggle {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            cursor: pointer;
-            z-index: 3; /* Set higher z-index to keep it on top */
-            font-size: 24px;
-        }
 
         .selection-container {
             display: flex;
@@ -126,28 +118,11 @@
             margin: 0;
             text-align: center;
         }
-        @media only screen and (max-width: 600px) {
-            .menu-bar {
-                width: 100%;
-                transform: translateX(-100%);
-                position: fixed;
-                height: 100%;
-            }
-
-            .menu-bar.closed {
-                transform: translateX(0);
-            }
-
-            .selection-container {
-                width: 100%;
-            }
-        }
     </style>
     <title>Music Selection Tool</title>
 </head>
 <body>
 <div class="menu-bar id=menuBar">
-    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
     <a href="#" class="menu-item" onclick="showAbout()">ABOUT</a>
     <!-- You can add more menu items as needed -->
 </div>
@@ -240,12 +215,7 @@
         // Implement your logic to display the "ABOUT" section
         alert('ABOUT section will be displayed here.');
     }
-     function toggleMenu() {
-            const menuBar = document.getElementById('menuBar');
-            menuBar.classList.toggle('closed');
-            const container = document.getElementById('selectionContainer');
-            container.classList.toggle('menu-open');
-        }
+  
 </script>
 
 </body>
