@@ -9,17 +9,21 @@
             padding: 0;
             overflow: hidden;
             display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #f0f0f0;
+        }
+
+        .menu-bar {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            width: 100px;
+            box-sizing: border-box;
         }
 
         .selection-container {
             display: flex;
             overflow: hidden;
             position: relative;
-            width: 100%;
+            width: calc(100% - 100px); /* Adjust width to leave space for the menu bar */
         }
 
         .artist {
@@ -78,19 +82,22 @@
             right: 0;
             background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
             padding: 10px;
-            text-align: center;
         }
             .artist.selected .artist-info {
             display: block; /* Show artist info when the artist is selected */
         }
         .artist-info h3 {
             margin: 0;
+            text-align: center
         }
     </style>
     <title>Music Selection Tool</title>
 </head>
 <body>
-
+<div class="menu-bar">
+    <a href="#" onclick="showAbout()">ABOUT</a>
+    <!-- You can add more menu items as needed -->
+</div>
 <div class="selection-container" id="selectionContainer">
     <div class="artist" id="artist1" onclick="selectArtist(1)">
         <img src="img/artists/kendrick.png" alt="Artist 1">
