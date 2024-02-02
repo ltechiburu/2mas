@@ -54,20 +54,27 @@
         .artist:not(.selected) img {
             filter: grayscale(80%); /* Adjust the grayscale for non-selected images */
         }
-        
+
+        .artist-info-container {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-top: 20px;
+        }
         .artist-info {
             text-align: left;
             margin-top: 10px;
             display: none;
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
             background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
             padding: 10px;
-            z-index: 2;
+            border-radius: 10px;
         }
 
+        .artist.selected .artist-container {
+            display: flex;
+        }
+        
         .artist.selected .artist-info {
             display: block; /* Show artist info when the artist is selected */
         }
@@ -87,70 +94,71 @@
     <title>Music Selection Tool</title>
 </head>
 <body>
-<div class="selection-container" id="selectionContainer">
-    <div class="artist" id="artist1" onclick="selectArtist(1)">
-        <img src="img/artists/kendrick.png" alt="Artist 1">
-        <br>
-        <div class="artist-info" id="info1">
-            <h3>Kendrick Lamar</h3>
-            <p>Top Played Songs:</p> 
-            <iframe id="embedPlayer" src="https://embed.music.apple.com/us/album/money-trees-feat-jay-rock/1440818890?i=1440818969&amp;app=music&amp;itsct=music_box_player&amp;itscg=30200&amp;ls=1&amp;theme=dark" height="175px" frameborder="0" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation-by-user-activation" allow="autoplay *; encrypted-media *; clipboard-write" style="width: 100%; max-width: 300px; overflow: hidden; border-radius: 10px; transform: translateZ(0px); animation: 2s ease 0s 6 normal none running loading-indicator; background-color: rgb(228, 228, 228);"></iframe>
-         <ol>
-                <li>Money Trees (feat. Jay Rock)</li>
-                <li>King Kunta</li>
-                <li>B*tch Don't Kill My Vibe</li>
-            </ol>
+    <div class="selection-container" id="selectionContainer">
+        <div class="artist" id="artist1" onclick="selectArtist(1)">
+            <img src="img/artists/kendrick.png" alt="Artist 1">
+        </div>
+        <div class="artist" id="artist2" onclick="selectArtist(2)">
+            <img src="img/artists/kanye.png" alt="Artist 2">
+        </div>
+        <div class="artist" id="artist3" onclick="selectArtist(3)">
+            <img src="img/artists/frank-ocean.png" alt="Artist 3">
+        </div>
+        <div class="artist" id="artist4" onclick="selectArtist(4)">
+            <img src="img/artists/weeknd.png" alt="Artist 4">
+        </div>
+        <div class="artist" id="artist5" onclick="selectArtist(5)">
+            <img src="img/artists/mac-miller.png" alt="Artist 5">
         </div>
     </div>
-    <div class="artist" id="artist2" onclick="selectArtist(2)">
-        <img src="img/artists/kanye.png" alt="Artist 2">
-        <div class="artist-info" id="info2">
-            <h3>Kanye West</h3>
-            <p>Top Played Songs:</p> 
-            <ol>
-                <li>Spaceship (feat. GLC & Consequence)</li>
-                <li>Father Stretch My Hands, Pt. 1</li>
-                <li>Gorgeous (feat. Kid Cudi & Raekwon)</li>
-            </ol>
-        </div>
+        <div class="artist-info-container" id="artistInfoContainer">
+            <div class="artist-info" id="info1">
+                <h3>Kendrick Lamar</h3>
+                <p>Top Played Songs:</p> 
+                <iframe id="embedPlayer" src="https://embed.music.apple.com/us/album/money-trees-feat-jay-rock/1440818890?i=1440818969&amp;app=music&amp;itsct=music_box_player&amp;itscg=30200&amp;ls=1&amp;theme=dark" height="175px" frameborder="0" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation-by-user-activation" allow="autoplay *; encrypted-media *; clipboard-write" style="width: 100%; max-width: 300px; overflow: hidden; border-radius: 10px; transform: translateZ(0px); animation: 2s ease 0s 6 normal none running loading-indicator; background-color: rgb(228, 228, 228);"></iframe>
+                 <ol>
+                    <li>Money Trees (feat. Jay Rock)</li>
+                    <li>King Kunta</li>
+                    <li>B*tch Don't Kill My Vibe</li>
+                </ol>
+            </div>
+            <div class="artist-info" id="info2">
+                <h3>Kanye West</h3>
+                <p>Top Played Songs:</p> 
+                <ol>
+                    <li>Spaceship (feat. GLC & Consequence)</li>
+                    <li>Father Stretch My Hands, Pt. 1</li>
+                    <li>Gorgeous (feat. Kid Cudi & Raekwon)</li>
+                </ol>
+            </div>
+            <div class="artist-info" id="info3">
+                <h3>Frank Ocean</h3>
+                <p>Top Played Songs:</p>
+                <ol>
+                    <li>Nikes</li>
+                    <li>Pink + White</li>
+                    <li>Ivy</li>
+                </ol>
+            </div>
+            <div class="artist-info" id="info4">
+                <h3>The Weeknd</h3>
+                <p>Top Played Songs:</p>
+                <ol>
+                    <li>Sidewalks (feat. Kendrick Lamar)</li>
+                    <li>Reminder</li>
+                    <li>Starboy (feat. Daft Punk)</li>
+                </ol>
+            </div>
+            <div class="artist-info" id="info5">
+                <h3>Mac Miller</h3>
+                <p>Top Played Songs:</p>
+                <ol>
+                    <li>Earth (feat. Future)</li>
+                    <li>Diablo</li>
+                    <li>Blue World</li>
+                </ol>
+            </div>
     </div>
-   <div class="artist" id="artist3" onclick="selectArtist(3)">
-        <img src="img/artists/frank-ocean.png" alt="Artist 3">
-        <div class="artist-info" id="info3">
-            <h3>Frank Ocean</h3>
-            <p>Top Played Songs:</p>
-            <ol>
-                <li>Nikes</li>
-                <li>Pink + White</li>
-                <li>Ivy</li>
-            </ol>
-        </div>
-   </div>
-    <div class="artist" id="artist4" onclick="selectArtist(4)">
-        <img src="img/artists/weeknd.png" alt="Artist 4">
-        <div class="artist-info" id="info4">
-            <h3>The Weeknd</h3>
-            <p>Top Played Songs:</p>
-            <ol>
-                <li>Sidewalks (feat. Kendrick Lamar)</li>
-                <li>Reminder</li>
-                <li>Starboy (feat. Daft Punk)</li>
-            </ol>
-        </div>
-    </div>
-    <div class="artist" id="artist5" onclick="selectArtist(5)">
-        <img src="img/artists/mac-miller.png" alt="Artist 5">
-        <div class="artist-info" id="info5">
-            <h3>Mac Miller</h3>
-            <p>Top Played Songs:</p>
-            <ol>
-                <li>Earth (feat. Future)</li>
-                <li>Diablo</li>
-                <li>Blue World</li>
-            </ol>
-        </div>
-    </div>
-</div>
 <div class="large-container">
     <!-- Add your additional content here -->
     <h2>Your Additional Content Goes Here</h2>
