@@ -3,7 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .selection-container {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .artist {
+            flex: 0 0 20%;
+            cursor: pointer;
+            overflow: hidden;
+            transition: flex 0.5s ease;
+        }
+
+        .artist img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .artist.selected {
+            flex: 0 0 40%;
+        }
+    </style>
     <title>Music Selection Tool</title>
 </head>
 <body>
@@ -26,54 +54,27 @@
     </div>
 </div>
 
-<script src="script.js"></script>
+<script>
+    function selectArtist(artistNumber) {
+        const container = document.getElementById('selectionContainer');
+        const selectedArtist = document.getElementById('artist' + artistNumber);
+
+        // Remove 'selected' class from all artists
+        const artists = container.getElementsByClassName('artist');
+        for (const artist of artists) {
+            artist.classList.remove('selected');
+        }
+
+        // Add 'selected' class to the clicked artist
+        selectedArtist.classList.add('selected');
+
+        // Center the selected artist in the view
+        const containerRect = container.getBoundingClientRect();
+        const selectedRect = selectedArtist.getBoundingClientRect();
+        const offset = (selectedRect.left - containerRect.left) - (containerRect.width / 2 - selectedRect.width / 2);
+
+        container.style.transform = 'translateX(' + -offset + 'px)';
+    }
+</script>
 </body>
 </html>
-body {
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-}
-
-.selection-container {
-    display: flex;
-    transition: transform 0.5s ease;
-}
-
-.artist {
-    flex: 0 0 20%;
-    cursor: pointer;
-    overflow: hidden;
-    transition: flex 0.5s ease;
-}
-
-.artist img {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
-.artist.selected {
-    flex: 0 0 40%;
-}
-function selectArtist(artistNumber) {
-    const container = document.getElementById('selectionContainer');
-    const selectedArtist = document.getElementById('artist' + artistNumber);
-
-    // Remove 'selected' class from all artists
-    const artists = container.getElementsByClassName('artist');
-    for (const artist of artists) {
-        artist.classList.remove('selected');
-    }
-
-    // Add 'selected' class to the clicked artist
-    selectedArtist.classList.add('selected');
-
-    // Center the selected artist in the view
-    const containerRect = container.getBoundingClientRect();
-    const selectedRect = selectedArtist.getBoundingClientRect();
-    const offset = (selectedRect.left - containerRect.left) - (containerRect.width / 2 - selectedRect.width / 2);
-
-    container.style.transform = 'translateX(' + -offset + 'px)';
-}
-
