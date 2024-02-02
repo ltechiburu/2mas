@@ -9,13 +9,12 @@
             padding: 0;
             overflow: hidden;
             display: flex;
-            flex-direction: column;
         }
 
         .menu-bar {
             background-color: #4D1C31;
             color: white;
-            height: 100vh;
+            height: 100%;
             width: 250px;
             display: flex;
             flex-direction: column;
@@ -23,6 +22,8 @@
             padding-top: 20px;
             box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
             z-index: 2;
+            position: fixed;
+            transition: transform 0.3s ease;
         }
 
         .menu-item {
@@ -36,12 +37,21 @@
         .menu-item:hover {
             background-color: #593446; /* Darker color on hover */
         }
+        .menu-toggle {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            cursor: pointer;
+            z-index: 3; /* Set higher z-index to keep it on top */
+            font-size: 24px;
+        }
 
         .selection-container {
             display: flex;
             overflow: hidden;
             position: relative;
             width: calc(100% - 250px); /* Adjust width to leave space for the menu bar */
+            transition: transform 0.3s ease;
         }
 
         .artist {
@@ -50,6 +60,8 @@
             overflow: hidden;
             transition: transform 0.5s ease, opacity 0.5s ease;
             position: relative;
+            z-index: 1
+
         }
 
         .artist img {
@@ -115,32 +127,26 @@
         }
         @media only screen and (max-width: 600px) {
             .menu-bar {
-                flex-direction: row; /* Change flex direction to row for mobile layout */
+                width: 100%;
+                transform: translateX(-100%);
                 position: fixed;
-                bottom: 0;
-                left: 0;
-                right: 0;
-                z-index: 3; /* Ensure the menu bar stays on top in mobile layout */
+                height: 100%;
+            }
+
+            .menu-bar.closed {
+                transform: translateX(0);
             }
 
             .selection-container {
-                flex-direction: column; /* Change flex direction to column for mobile layout */
-            }
-
-            .artist {
-                flex: 1 0 auto; /* Take full width for mobile layout */
-                margin: 5px; /* Add some margin between artists in mobile layout */
-            }
-
-            .artist.selected {
-                flex: 1 0 auto; /* Take full width for mobile layout */
+                width: 100%;
             }
         }
     </style>
     <title>Music Selection Tool</title>
 </head>
 <body>
-<div class="menu-bar">
+<div class="menu-bar
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
     <a href="#" class="menu-item" onclick="showAbout()">ABOUT</a>
     <!-- You can add more menu items as needed -->
 </div>
@@ -233,6 +239,12 @@
         // Implement your logic to display the "ABOUT" section
         alert('ABOUT section will be displayed here.');
     }
+     function toggleMenu() {
+            const menuBar = document.getElementById('menuBar');
+            menuBar.classList.toggle('closed');
+            const container = document.getElementById('selectionContainer');
+            container.classList.toggle('menu-open');
+        }
 </script>
 
 </body>
