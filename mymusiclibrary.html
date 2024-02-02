@@ -8,6 +8,19 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js">
     <style>
+        .header {
+            font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-weight: 700;
+        }
+        
+        .header h1 {
+            margin: 0;
+        }
+        
+        .header p {
+            margin: 10px 0 0;
+        }
+
         body {
             margin: 0;
             padding: 0;
@@ -130,8 +143,6 @@
       text-transform: uppercase;
       font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
       font-weight: 700;
-        background-color: #4d1c31;
-        font-color: white;
     }
 
     .navbar a:focus {
@@ -183,6 +194,11 @@
 </a>
 MyMusicLibary
     </div>
+<div class="header" style="background-color: #4d1c31; color: white; text-align: center; padding: 20px;">
+    <h1>Welcome to My Music Library</h1>
+    <p>Explore the top artists and their popular songs</p>
+</div>
+
   </nav>
     <div class="selection-container" id="selectionContainer">
         <div class="artist" id="artist1" onclick="selectArtist(1)">
