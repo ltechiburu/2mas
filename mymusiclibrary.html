@@ -124,51 +124,67 @@
             padding: 20px;
             margin-top: 20px;
         }
-    @media(min-width:768px) {
-    .navbar-fixed-top {
+    .navbar {
+      text-transform: uppercase;
+      font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-weight: 700;
+    }
+
+    .navbar a:focus {
+      outline: 0;
+    }
+
+    .navbar .navbar-nav {
+      letter-spacing: 1px;
+    }
+
+    .navbar .navbar-nav li a:focus {
+      outline: 0;
+    }
+
+    .navbar-default,
+    .navbar-inverse {
+      border: 0;
+    }
+/* Additional style for the dynamic text in the navbar */
+.navbar .dynamic-text {
+  color: #800000; /* Maroon color */
+  font-size: 1.5em; /* Adjust the font size as needed */
+  display: flex;
+  align-items: center; /* Center vertically */
+  justify-content: center; /* Center horizontally */
+   position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Initially set to display none - modify this if you want it to be initially visible */
+.navbar .dynamic-text {
+  display: none;
+}
+@media(min-width:768px) {
+      .navbar-fixed-top {
         padding: 25px 0;
         -webkit-transition: padding .3s;
         -moz-transition: padding .3s;
         transition: padding .3s;
-    }
+      }
 
-    .navbar-fixed-top .navbar-brand {
+      .navbar-fixed-top .navbar-brand {
         font-size: 2em;
         -webkit-transition: all .3s;
         -moz-transition: all .3s;
         transition: all .3s;
-    }
+      }
 
-    .navbar-fixed-top.navbar-shrink {
+      .navbar-fixed-top.navbar-shrink {
         padding: 10px 0;
-    }
+      }
 
-    .navbar-fixed-top.navbar-shrink .navbar-brand {
+      .navbar-fixed-top.navbar-shrink .navbar-brand {
         font-size: 1.5em;
-    }
-    }
-
-    .navbar {
-        text-transform: uppercase;
-        font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
-        font-weight: 700;
-    }
-    
-    .navbar a:focus {
-        outline: 0;
-    }
-    
-    .navbar .navbar-nav {
-        letter-spacing: 1px;
-    }
-    
-    .navbar .navbar-nav li a:focus {
-        outline: 0;
-    }
-    
-    .navbar-default,
-    .navbar-inverse {
-        border: 0;
+      }
     }
     </style>
 </head>
