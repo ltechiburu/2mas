@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -12,7 +12,7 @@
         }
 
         .menu-bar {
-           background-color: #4D1C31; 
+            background-color: #4D1C31;
             color: white;
             height: 100vh;
             width: 250px;
@@ -21,8 +21,9 @@
             align-items: center;
             padding-top: 20px;
             box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Added box shadow for a subtle effect */
-           
-            .menu-item {
+        }
+
+        .menu-item {
             padding: 15px;
             text-decoration: none;
             color: white;
@@ -30,15 +31,15 @@
             transition: background-color 0.3s ease;
         }
 
-            .menu-item:hover {
+        .menu-item:hover {
             background-color: #593446; /* Darker color on hover */
-         }
+        }
 
         .selection-container {
             display: flex;
             overflow: hidden;
             position: relative;
-            width: calc(100% - 100px); /* Adjust width to leave space for the menu bar */
+            width: calc(100% - 250px); /* Adjust width to leave space for the menu bar */
         }
 
         .artist {
@@ -46,6 +47,7 @@
             cursor: pointer;
             overflow: hidden;
             transition: transform 0.5s ease, opacity 0.5s ease;
+            position: relative;
         }
 
         .artist img {
@@ -87,10 +89,11 @@
         .artist:nth-child(5) {
             transform: translateX(-40%);
         }
-          .artist-info {
+
+        .artist-info {
             text-align: left;
             margin-top: 10px;
-            display: none; 
+            display: none;
             position: absolute;
             bottom: 0;
             left: 0;
@@ -98,12 +101,14 @@
             background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
             padding: 10px;
         }
-            .artist.selected .artist-info {
+
+        .artist.selected .artist-info {
             display: block; /* Show artist info when the artist is selected */
         }
+
         .artist-info h3 {
             margin: 0;
-            text-align: center
+            text-align: center;
         }
     </style>
     <title>Music Selection Tool</title>
@@ -197,8 +202,12 @@
 
         container.style.transform = 'translateX(' + -offset + 'px)';
     }
+
+    function showAbout() {
+        // Implement your logic to display the "ABOUT" section
+        alert('ABOUT section will be displayed here.');
+    }
 </script>
 
-    
 </body>
 </html>
