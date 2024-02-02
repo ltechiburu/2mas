@@ -8,28 +8,65 @@
             margin: 0;
             padding: 0;
             overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
         }
 
         .selection-container {
             display: flex;
-            transition: transform 0.5s ease;
+            overflow: hidden;
+            position: relative;
+            width: 100%;
         }
 
         .artist {
             flex: 0 0 20%;
             cursor: pointer;
             overflow: hidden;
-            transition: flex 0.5s ease;
+            transition: transform 0.5s ease, opacity 0.5s ease;
         }
 
         .artist img {
             width: 100%;
             height: auto;
             display: block;
+            transition: transform 0.5s ease, filter 0.5s ease;
         }
 
         .artist.selected {
             flex: 0 0 40%;
+            z-index: 1;
+        }
+
+        .artist.selected img {
+            transform: scale(1.2); /* Adjust the scale for the selected image */
+        }
+
+        .artist:not(.selected) {
+            opacity: 0.4; /* Adjust the opacity for non-selected images */
+        }
+
+        .artist:not(.selected) img {
+            filter: grayscale(80%); /* Adjust the grayscale for non-selected images */
+        }
+
+        .artist:nth-child(2) {
+            transform: translateX(-10%);
+        }
+
+        .artist:nth-child(3) {
+            transform: translateX(-20%);
+        }
+
+        .artist:nth-child(4) {
+            transform: translateX(-30%);
+        }
+
+        .artist:nth-child(5) {
+            transform: translateX(-40%);
         }
     </style>
     <title>Music Selection Tool</title>
