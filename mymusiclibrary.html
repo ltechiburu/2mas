@@ -12,12 +12,27 @@
         }
 
         .menu-bar {
-            background-color: #333;
+           background-color: #4D1C31; 
             color: white;
-            padding: 20px;
-            width: 100px;
-            box-sizing: border-box;
+            height: 100vh;
+            width: 250px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 20px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Added box shadow for a subtle effect */
+           
+            .menu-item {
+            padding: 15px;
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
         }
+
+            .menu-item:hover {
+            background-color: #593446; /* Darker color on hover */
+         }
 
         .selection-container {
             display: flex;
@@ -95,7 +110,7 @@
 </head>
 <body>
 <div class="menu-bar">
-    <a href="#" onclick="showAbout()">ABOUT</a>
+    <a href="#" class="menu-item" onclick="showAbout()">ABOUT</a>
     <!-- You can add more menu items as needed -->
 </div>
 <div class="selection-container" id="selectionContainer">
