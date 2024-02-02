@@ -72,11 +72,35 @@
             padding: 10px;
             border-radius: 10px;
         }
-        
-        .artist-info h3 {
-            margin: 0;
-            text-align: center;
-        }
+            .info-content {
+            display: flex;
+            align-items: center; /* Align children vertically center */
+            }
+            
+            .info-content h3 {
+                margin: 0; /* Remove margin for better alignment */
+            }
+            
+            .info-content iframe {
+                width: 100%;
+                max-width: 300px;
+                overflow: hidden;
+                border-radius: 10px;
+                margin-right: 10px; /* Add some space between the player and top songs */
+            }
+            
+            .top-songs {
+                flex-grow: 1; /* Allow the top songs to take remaining space */
+            }
+            
+            .top-songs p {
+                margin: 0; /* Remove margin for better alignment */
+            }
+            
+            .top-songs ol {
+                margin-top: 0; /* Remove top margin for better alignment */
+            }
+                    
 
         .large-container {
             /* Add styles for your large container */
