@@ -186,7 +186,7 @@
         const selectedRect = selectedArtist.getBoundingClientRect();
         const offset = (selectedRect.left - containerRect.left) - (containerRect.width / 2 - selectedRect.width / 2);
         container.style.transform = 'translateX(' + -offset + 'px)';
-    }
+        
         // Hide all artist info
         const artistInfos = document.getElementsByClassName('artist-info');
         for (const info of artistInfos) {
@@ -196,7 +196,9 @@
         // Show the selected artist info
         const selectedArtistInfo = document.getElementById('info' + artistNumber);
         selectedArtistInfo.style.display = 'block';
+    
     }
+        
 
     function showAbout() {
         // Implement your logic to display the "ABOUT" section
