@@ -170,9 +170,17 @@
         for (const artist of artists) {
             artist.classList.remove('selected');
         }
-
+        
         // Add 'selected' class to the clicked artist
         selectedArtist.classList.add('selected');
+        
+        const isAlreadySelected = selectedArtist.classList.contains('selected');
+          // If the clicked artist is already selected, clear the selection and hide artist info
+    if (isAlreadySelected) {
+        artistInfoContainer.style.display = 'none';
+        return;
+    }
+
 
         // Center the selected artist in the view
         const containerRect = container.getBoundingClientRect();
