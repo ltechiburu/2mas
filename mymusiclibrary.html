@@ -67,7 +67,16 @@
 
         // Add 'selected' class to the clicked artist
         selectedArtist.classList.add('selected');
+
+        // Center the selected artist in the view
+        const containerRect = container.getBoundingClientRect();
+        const selectedRect = selectedArtist.getBoundingClientRect();
+        const offset = (selectedRect.left - containerRect.left) - (containerRect.width / 2 - selectedRect.width / 2);
+
+        container.style.transform = 'translateX(' + -offset + 'px)';
     }
 </script>
+
+    
 </body>
 </html>
