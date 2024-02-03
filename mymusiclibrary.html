@@ -349,42 +349,40 @@ MyMusicLibary
         const container = document.getElementById('selectionContainer');
         const selectedArtist = document.getElementById('artist' + artistNumber);
         const artistInfoContainer = document.getElementById('artistInfoContainer');
- // Remove 'selected' class from all artists
-    const artists = container.getElementsByClassName('artist');
-    for (const artist of artists) {
-        artist.classList.remove('selected');
-    }
 
-    // Add 'selected' class to the clicked artist
-    selectedArtist.classList.add('selected');
+        // Remove 'selected' class from all artists
+        const artists = container.getElementsByClassName('artist');
+        for (const artist of artists) {
+            artist.classList.remove('selected');
+        }
+        
+        // Add 'selected' class to the clicked artist
+        selectedArtist.classList.add('selected');
+        
+        // Center the selected artist in the view
+        const containerRect = container.getBoundingClientRect();
+        const selectedRect = selectedArtist.getBoundingClientRect();
+        const offset = (selectedRect.left + selectedRect.width / 2) - (containerRect.left + containerRect.width / 2);
+        container.style.transform = 'translateX(' + -offset + 'px)';
+        
+        // Hide all artist info
+        const artistInfos = document.getElementsByClassName('artist-info');
+        for (const info of artistInfos) {
+            info.style.display = 'none';
+        }
 
-    // Calculate the offset for looping effect
-    const containerRect = container.getBoundingClientRect();
-    const selectedRect = selectedArtist.getBoundingClientRect();
-    const offset = (selectedRect.left + selectedRect.width / 2) - (containerRect.left + containerRect.width / 2);
+        // Show the selected artist info
+        const selectedArtistInfo = document.getElementById('info' + artistNumber);
+        selectedArtistInfo.style.display = 'block';
     
-    // Calculate the total width of the artists
-    const totalWidth = container.scrollWidth;
-
-    // Determine the direction of the loop (1 for right, -1 for left)
-    const loopDirection = offset > 0 ? 1 : -1;
-
-    // Calculate the new transform value
-    const newTransform = 'translateX(' + (container.style.transform ? parseInt(container.style.transform.match(/-?\d+/)[0]) : 0) + (totalWidth * loopDirection) + 'px)';
-
-    // Apply the new transform
-    container.style.transform = newTransform;
-
-    // Hide all artist info
-    const artistInfos = document.getElementsByClassName('artist-info');
-    for (const info of artistInfos) {
-        info.style.display = 'none';
     }
+        
 
-    // Show the selected artist info
-    const selectedArtistInfo = document.getElementById('info' + artistNumber);
-    selectedArtistInfo.style.display = 'block';
-}
+    function showAbout() {
+        // Implement your logic to display the "ABOUT" section
+        alert('ABOUT section will be displayed here.');
+    }
+  
 </script>
 
 </body>
