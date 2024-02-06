@@ -66,7 +66,7 @@
         }
 
         .artist img {
-            width: 100%;
+            width: 80%;
             height: auto;
             display: block;
             transition: transform 0.5s ease, filter 0.5s ease;
@@ -233,19 +233,19 @@ MyMusicLibary
     <h2 class="section-title">Top 5 Artists(by total plays)</h2>
     <div class="selection-container" id="selectionContainer">
         <div class="artist" id="artist1" onclick="selectArtist(1)">
-            <img src="img/artists/kendrick.png" alt="Artist 1">
+            <img src="img/artists/kendrick.png" alt="Kendrick Lamar">
         </div>
         <div class="artist" id="artist2" onclick="selectArtist(2)">
-            <img src="img/artists/badbunny.png" alt="Artist 2">
+            <img src="img/artists/badbunny.png" alt="Bad Bunny">
         </div>
         <div class="artist" id="artist3" onclick="selectArtist(3)">
-            <img src="img/artists/frank-ocean.png" alt="Artist 3">
+            <img src="img/artists/frank-ocean.png" alt="Frank Ocean">
         </div>
         <div class="artist" id="artist4" onclick="selectArtist(4)">
-            <img src="img/artists/andre.png" alt="Artist 4">
+            <img src="img/artists/andre.png" alt="Andre 3000 from Outkast">
         </div>
         <div class="artist" id="artist5" onclick="selectArtist(5)">
-            <img src="img/artists/macmiller.png" alt="Artist 5">
+            <img src="img/artists/macmiller.png" alt="Mac Miller">
         </div>
     </div>
         <div class="artist-info-container" id="artistInfoContainer">
@@ -380,12 +380,6 @@ MyMusicLibary
         const selectedArtistInfo = document.getElementById('info' + artistNumber);
         selectedArtistInfo.style.display = 'block';
     
-    }
-        
-
-    function showAbout() {
-        // Implement your logic to display the "ABOUT" section
-        alert('ABOUT section will be displayed here.');
     }
   
 </script>
