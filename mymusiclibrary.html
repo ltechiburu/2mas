@@ -33,12 +33,13 @@
 
         .selection-container {
             display: flex;
-            overflow-x: auto;
+            overflow-x: hidden;
             position: relative;
             width: 100%;
             transition: transform 0.3s ease;
             margin: 0 auto;
             align-items: center;
+            justify-content: center;
 
         }
         .artist {
@@ -216,7 +217,7 @@ MyMusicLibary
     <h1>MYMUSICLIBRARY</h1>
     <p>Explore my listening habits, as downloaded from Apple Music.</p>
 </header>
-    <h2 class="section-title">Top 5 Artists(by total plays)</h2>
+    <h2 class="section-title">Top 5 Artists (by total play count)</h2>
     <div class="selection-container" id="selectionContainer">
         <div class="artist" id="artist1" onclick="selectArtist(1)">
             <img src="img/artists/kendrick.png" alt="Kendrick Lamar">
