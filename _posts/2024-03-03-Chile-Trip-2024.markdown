@@ -1,0 +1,11 @@
+---
+layout: default
+modal-id: 5
+date: 2024-03-03
+img: safe.png
+alt: chilean flag
+project-date: March 2024
+client: tba
+category: Consumer Insights, Data Analysis
+description: "My latest trip to Chile, by the numbers"
+---
