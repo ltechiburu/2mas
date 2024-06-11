@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1, h2 {
+            text-align: center;
+        }
+        .slides-container, .code-screenshots-container {
+            margin: 20px 0;
+        }
+        .slides-container iframe {
+            width: 100%;
+            height: 500px;
+            border: none;
+        }
+        .code-screenshots-container img {
+            width: 100%;
+            max-width: 600px;
+            display: block;
+            margin: 10px auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>My Portfolio</h1>
+
+        <div class="slides-container">
+            <h2>Google Slides Presentation</h2>
+            <iframe src="https://docs.google.com/presentation/d/11lCalZG3TfKcI2ylPZcofWG8mCMYmmoGF5oCx2Y6LrE/edit?usp=sharing/embed?start=false&loop=false&delayms=3000" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+        </div>
+
+        <div class="code-screenshots-container">
+            <h2>Code Screenshots</h2>
+            <img src="screenshot1.png" alt="Code Screenshot 1">
+            <img src="screenshot2.png" alt="Code Screenshot 2">
+            <img src="screenshot3.png" alt="Code Screenshot 3">
+        </div>
+    </div>
+</body>
+</html>
