@@ -19,13 +19,16 @@
         h1, h2 {
             text-align: center;
         }
-        .slides-container, .code-screenshots-container {
+    .slides-container {
             margin: 20px 0;
         }
         .slides-container iframe {
             width: 100%;
             height: 500px;
             border: none;
+        }
+        .description {
+            margin: 20px 0;
         }
         .code-screenshots-container img {
             width: 100%;
@@ -42,6 +45,20 @@
         <div class="slides-container">
             <h2>A mock project on consumer insights and taste test analysis</h2>
             <iframe src="https://docs.google.com/presentation/d/11lCalZG3TfKcI2ylPZcofWG8mCMYmmoGF5oCx2Y6LrE/embed?start=false&loop=false&delayms=3000" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+        </div>
+
+   <div class="description">
+            <p>Above is a presentation for a mock project. Below are the steps I took to reach my conclusion.</p>
+
+            <h3>Test Design:</h3>
+            <p>I purchased and tasted the current Gatorade Zero Orange. I created a list of sensory attributes present in the product. The following test was created:</p>
+
+            <h3>Data Collection:</h3>
+            <p>Without the resources to truly run an 80 person consumer test, I turned to AI. I provided my test to ChatGPT and asked it to simulate a study with 80 participants. This was the output:</p>
+
+            <h3>Data Analysis:</h3>
+            <p>I used Python to run statistical analyses on my dataset. From simple calculations such as Liking score means and JAR percentages, I created my tables. I then ran more advanced statistical tests, namely paired t-tests, Wilcoxon signed-rank tests, and an OLS regression model, to determine if there were significant differences between the original product and the new formulation.</p>
+            <p>You can see my code here:</p>
         </div>
 
         <div class="code-screenshots-container">
