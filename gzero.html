@@ -39,7 +39,7 @@
         <div class="slides-container">
             <h2>A mock project on consumer insights and taste test analysis</h2>
             <h3>Disclaimer:</h3>
-            <p>This is purely an exercise to showcase skills. This is not a real project occurring at Gatorade. There was not a real taste test performed. While the analysis is real, all consumer data is AI-generated.</p>
+            <p><em>This is purely an exercise to showcase skills. This is not a real project occurring at Gatorade. There was not a real taste test performed. While the analysis is real, all consumer data is AI-generated.</em></p>
 
             <iframe src="https://docs.google.com/presentation/d/11lCalZG3TfKcI2ylPZcofWG8mCMYmmoGF5oCx2Y6LrE/embed?start=false&loop=false&delayms=3000" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
         </div>
@@ -48,10 +48,10 @@
             <p>Above is a presentation for a mock project. Below are the steps I took to reach my conclusion.</p>
 
             <h3>Test Design:</h3>
-            <p>I purchased and tasted the current Gatorade Zero Orange. I created a list of sensory attributes present in the product. <a href="gzero-files/GZero_QNR.pdf" target="_blank">Click here to see the created test</a>.</p>
+            <p>I purchased and tasted the current Gatorade Zero Orange. I created a list of sensory attributes present in the product. <a href="gzero-files/GZero_QNR.pdf" target="_blank">Click here to see the created questionnaire</a>.</p>
 
             <h3>Data Collection:</h3>
-            <p>Without the resources to truly run an 80 person consumer test, I turned to AI. I provided my test to ChatGPT and asked it to simulate a study with 80 participants. <a href="gzero-files/Gatorade_Zero_Taste_Test_Survey_Responses_2.csv" target="_blank">This CSV file was the output</a>.</p>
+            <p>Without the resources to truly run an 80 person consumer test, I turned to AI. I provided my questionnaire to ChatGPT and asked it to simulate a study with 80 participants. <a href="gzero-files/Gatorade_Zero_Taste_Test_Survey_Responses_2.csv" target="_blank">This CSV file was the output</a>.</p>
 
             <h3>Data Analysis:</h3>
             <p>I used Python to run statistical analyses on my dataset. From simple calculations such as Liking score means and JAR percentages, I created my tables. I then ran more advanced statistical tests, namely paired t-tests, Wilcoxon signed-rank tests, and an OLS regression model, to determine if there were significant differences between the original product and the new formulation.</p>
