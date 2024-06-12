@@ -2,7 +2,7 @@
 layout: default
 modal-id: 7
 date: 2024-06-11
-img: baseball.png
+img: gzerologo.png
 alt: G graphic
 project-date: June 2024
 client: Interview
