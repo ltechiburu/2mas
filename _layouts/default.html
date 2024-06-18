@@ -1,7 +1,24 @@
 <!DOCTYPE html>
 <html>
-{% include head.html %}
+<head>
 
+  {% include head.html %}
+   <title>{{ page.title }}</title>
+    <!-- Google Analytics -->
+    {% if site.google_analytics %}
+   <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GE4P9G6CH3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-GE4P9G6CH3');
+</script>
+    {% endif %}
+</head>
+
+    <!-- End Google Analytics -->
 <body id="page-top" class="index">
   {% include nav.html %}
   {% include header.html %}
