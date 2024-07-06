@@ -5,7 +5,7 @@ date: 2022-04-15
 img: baseball.png
 alt: baseball graphic
 project-date: April 2022
-client: Personal Project
-category: Data Analysis, Data Vizualization
+tools: Microsoft Excel, Tableau, HTML
+category: Data Analysis, Statistical Modeling, Data Vizualization
 description: "<a href=\"https://ltechiburu.github.io/2mas/NPB-to-MLB.html\" target=\"_blank\" style=\"color: blue;\"><b><i>A case study on the transition from the Japanese baseball league to the Majors, and what we can expect from Seiya Suzuki.</i></b></a>"
 ---
