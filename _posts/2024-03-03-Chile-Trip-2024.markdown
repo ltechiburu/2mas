@@ -5,8 +5,8 @@ date: 2024-03-03
 img: chile.png
 alt: chilean flag
 project-date: March 2024
-client: tba
-category: Data Vizualisation, Adobe Illustrator
+tools: Adobe Illustrator
+category: Data Vizualisation, Dashboard Creation
 description: "<a href=\"https://ltechiburu.github.io/2mas/chile-trip-2024.png\" target=\"_blank\" style=\"color: blue;\"><b><i>My latest trip to Chile, by the numbers.</i></b></a>"
 
 ---
